@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app = "myOwnApp">
+<head>
+<link rel="stylesheet" href="css/Projectcss.css" type="text/css" />
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src="js/jquery-3.1.1.js"></script>
+<!-- <script src="js/student.js"></script> -->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.js"></script>
+<script src="js/angularjs-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/loginController.js"></script>
+<script src="js/dashboardController.js"></script>
+</head>
+<body>
+<!-- 	<h1>welcome</h1> -->
+	
+	<!-- <a href="templates/StudentForm.html">InsertStudent</a> -->
+	
+	<!-- <form  name="studentForm" >
+	<div>
+		<label>Enter Student Name</label>
+		<input type="text" id="studentName" name="studentName" ng-model="student.name">
+	</div>
+	<button type="submit" onclick = "saveStudent()">Submit</button>
+	</form> -->
+	<div ng-include="'header.html'"></div>
+	<div ng-view></div>
+</body>
+
+</html>
