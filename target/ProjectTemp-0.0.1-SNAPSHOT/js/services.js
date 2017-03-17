@@ -12,7 +12,7 @@ services.factory('myService', function($resource) {
 			params: {'action' : 'saveStudent'},
 		},
 		searchData : {
-			method: 'POST', isArray: false,
+			method: 'POST', isArray: true,
 			params: {'action' : 'searchData'}
 		}
 			});
