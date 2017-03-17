@@ -29,12 +29,13 @@ app.controller('myCtrl', function($scope,$http,$log,myService) {
     $scope.myDetails=sample.data;
     $log.info($scope.myDetails);
   });*/
-  myService.getData(function(data){
+ /* myService.getData(function(data){
     $scope.myDetails=data;
     $log.info(data);
-  });
+  });*/
   
   $scope.search = {};
+  $scope.students = [];
   $scope.SearchSubmit = function(){
 	  myService.searchData($scope.search,function(result){
 		  $scope.students = result;
