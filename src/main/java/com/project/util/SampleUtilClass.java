@@ -11,6 +11,7 @@ public class SampleUtilClass {
 	
 	public List<Student> modifyData(List<Student> stuList){
 		
+		System.out.println(stuList);
 		for (Student student : stuList) {
 			if(student.getStuId() == 5){
 				student.setStuName("ABC");
