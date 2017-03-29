@@ -17,6 +17,7 @@ function saveStudent(){
 	    })
 	            .done(function (msg) {
 	                console.log(msg);
+	                $('#uppercase').append(msg.toUpperCase());
 
 	            })
 	            .fail(function (jqXHR, textStatus) {

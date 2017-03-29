@@ -33,6 +33,15 @@ public class StudentDaoImpl implements StudentDao{
 		return searStudent;
 	}
 
+	@Override
+	public List<Student> load() {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<Student> loadStudent = sqlSession.selectList("loadStudent");
+		return loadStudent;
+	
+	}
+
 	
 
 }

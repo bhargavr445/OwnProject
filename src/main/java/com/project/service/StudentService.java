@@ -13,4 +13,6 @@ public interface StudentService {
 
 	List<Student> search(Student student);
 
+	List<Student> loadData();
+
 }

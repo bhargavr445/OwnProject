@@ -36,11 +36,15 @@ app.controller('myCtrl', function($scope,$http,$log,myService) {
   
   $scope.search = {};
   $scope.students = [];
-  $scope.SearchSubmit = function(){
+  /*$scope.SearchSubmit = function(){
 	  myService.searchData($scope.search,function(result){
 		  $scope.students = result;
 		  
 	  });
-  }
+  }*/
+  
+  myService.loadStudentData(function(data){
+	  $scope.students = data;
+  })
   
 });

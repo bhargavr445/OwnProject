@@ -13,4 +13,5 @@ public interface StudentDao {
 
 	List<Student> search(Student student);
 
+	List<Student> load();
 }

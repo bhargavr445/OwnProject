@@ -40,6 +40,12 @@
 	
 	</select>
 	
+	<select id="loadStudent"  resultMap="studentResultMap">
+	
+		select * from student  
+	
+	</select>
+	
 	
 	
 </mapper>

@@ -15,7 +15,7 @@
 			                            </tr>
 			                        </thead>
 		                            <tbody>
-		                                <tr ng-repeat= "student in students">
+		                                <tr ng-repeat= "student in students | filter  : search.stuName">
 		                                	<td>{{$index+1}}</td>
 		                                    <td data-ng-init="id = student.stuName">{{student.stuId}}</td>
 		                                    <td>{{student.stuName}}</td>
@@ -24,3 +24,8 @@
                                     </tr>
 		                            </tbody>
 		                        </table>
+		                        
+		                        <label>Searched Data</label>
+		                        <select>
+		                        <option ng-repeat = "student in students">{{student.stuName}}</option>
+		                        </select>

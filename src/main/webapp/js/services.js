@@ -9,12 +9,17 @@ services.factory('myService', function($resource) {
 		},
 		saveData:{
 			method: 'GET', isArray: false,
-			params: {'action' : 'saveStudent'},
+			params: {'action' : 'saveStudent'}
 		},
 		searchData : {
 			method: 'POST', isArray: true,
 			params: {'action' : 'searchData'}
+		},
+		loadStudentData : {
+			method : 'GET', isArray: true,
+			params:{'action' : 'loadStudentData'}
 		}
+		
 			});
 
 });

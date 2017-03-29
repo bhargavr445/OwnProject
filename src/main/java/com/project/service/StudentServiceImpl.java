@@ -30,6 +30,12 @@ public class StudentServiceImpl implements StudentService{
 		List<Student> modifiedData = sampleutilClass.modifyData(searchResult);
 		return modifiedData;
 	}
+
+	@Override
+	public List<Student> loadData() {
+		List<Student> loadStudent = studentDao.load();
+		return loadStudent;
+	}
 	
 	
 }
