@@ -4,7 +4,6 @@ $.ajaxSetup({
     cache: false
 });
 
-
 function saveStudent(){
 	var student = {};
 	student.stuName = $('#studentName').val();
