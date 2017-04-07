@@ -1,4 +1,4 @@
-var app = angular.module('myOwnApp', ['ngRoute','myApp.services']);
+var app = angular.module('myOwnApp', ['ngRoute','myApp.services','ui.utils','reference']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
   .when('/home', {
@@ -13,10 +13,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
   templateUrl:'view/studentLogin.html',
   controller:'myCtrl'
 })
-.when('/parent',{
-  templateUrl:'view/parentLogin.html',
-  controller:'myCtrl'
-}).otherwise({
+.otherwise({
   redirectTo:'/home'
 });
  $locationProvider.hashPrefix('');

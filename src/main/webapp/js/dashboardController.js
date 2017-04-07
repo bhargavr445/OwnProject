@@ -1,4 +1,4 @@
-app.controller('myCtrl', function($scope,$http,$log,myService) {
+app.controller('myCtrl', function($scope,$http,$log,$location,myService) {
 	$scope.removeRow=function(index){
 		//var rowNo= $scope.myDetails.indexOf(details);
 		$scope.myDetails.splice(index,1);
@@ -36,12 +36,14 @@ app.controller('myCtrl', function($scope,$http,$log,myService) {
   
   $scope.search = {};
   $scope.students = [];
-  /*$scope.SearchSubmit = function(){
-	  myService.searchData($scope.search,function(result){
-		  $scope.students = result;
-		  
-	  });
-  }*/
+  $scope.SearchSubmit = function(){
+//	  myService.searchData($scope.search,function(result){
+//		  $scope.students = result;
+//		  
+//	  });
+	  
+	  $location.path('/parent3');
+  }
   
   myService.loadStudentData(function(data){
 	  $scope.students = data;

@@ -1,11 +1,11 @@
 var reference = angular.module('reference', ['ngRoute','ref.services']);
 reference.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
-  .when('/parent', {
-    templateUrl:'view/parent.html',
-    controller:'parentCtrl'
+  .when('/parent3', {
+    templateUrl:'view/myPages/parent.html',
+    controller:'parentCntlr'
   }).otherwise({
-  redirectTo:'/home'
+  redirectTo:'/parent3'
 });
  $locationProvider.hashPrefix('');
 }]);
