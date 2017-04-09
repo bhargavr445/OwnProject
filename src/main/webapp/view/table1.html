@@ -1,9 +1,17 @@
 <div class="content">
+  
+   <div class="panel panel-default">
+      <div class="panel-heading">Panel with panel-primary class</div>
+      <div class="panel-body">Panel Content</div>
+    </div>
+  
+  
+  
   <form name="contactForm" ng-submit="addData()">
-    <input  class="form-control" type="text" name="" placeholder="Enter Name" ng-model="newData.name" style="margin-left: 20px" my-dir/>
-    <input  class="form-control" type="text" name="" placeholder="Enter ID" ng-model="newData.id" style="margin-left: 20px"/>
-    <input  class="form-control" type="text" name="" placeholder="Enter Salary" ng-model="newData.sal" style="margin-left: 20px"/>
-    <input type="button" class="btn btn-primary" name="NewButton2" ng-click="addData()" value="Add" style="margin-left: 20px" />
+    <input  class="group-control" type="text" name="" placeholder="Enter Name" ng-model="newData.name" style="margin-left: 20px" my-dir/>
+    <input  class="form-control" type="text" name="" placeholder="Enter ID" ng-model="newData.id"/>
+    <input  class="form-control" type="text" name="" placeholder="Enter Salary" ng-model="newData.sal"/>
+    <input type="button" class="btn btn-primary" name="NewButton2" ng-click="addData()" value="Add"/>
   </form>
 </div>
 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">

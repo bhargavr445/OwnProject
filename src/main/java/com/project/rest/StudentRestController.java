@@ -36,7 +36,6 @@ public class StudentRestController {
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;
-		
 	}
 	
 	@POST

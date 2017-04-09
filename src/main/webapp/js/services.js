@@ -19,8 +19,7 @@ services.factory('myService', function($resource) {
 			method : 'GET', isArray: true,
 			params:{'action' : 'loadStudentData'}
 		}
-		
-			});
+	});
 
 });
 

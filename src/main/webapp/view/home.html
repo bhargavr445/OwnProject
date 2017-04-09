@@ -1,6 +1,10 @@
 <form>
   <input type="text" class="form-control" id="id" placeholder="Enter ID" ng-model="search.stuId"></input>
-  <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="search.stuName"></input>
+  <input    ui-mask="999-999-9999"
+               placeholder="xxx-xxx-xxxx" ng-model="phonenumber"></input>
+ 
+  
+  <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="search.stuName" ></input>
   <button type="submit" class="btn btn-primary" ng-click="SearchSubmit()">Search</button>
 </form>
 
