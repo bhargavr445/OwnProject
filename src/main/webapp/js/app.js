@@ -1,4 +1,4 @@
-var app = angular.module('myOwnApp', ['ngRoute','myApp.services','ui.utils','reference']);
+var app = angular.module('myOwnApp', ['ngRoute','myApp.services','ui.utils','ui.bootstrap','reference']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
   .when('/home', {

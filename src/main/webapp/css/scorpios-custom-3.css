@@ -67,3 +67,12 @@ border-image: initial;
 
 .table-hover tbody tr:hover {
   background-color: #e8e8ff; }
+  
+ .page-content{
+	padding:10px 0px;
+}
+.page-content .panel-heading{
+	border-radius: 8px 8px 0 0;
+    margin-bottom: -5px;
+   
+}

@@ -1,6 +1,18 @@
-<div data-ng-include="'barcodeTabs.html'"></div>
+<!-- <div data-ng-include src="'view/payroll/barcodeTabs.html'"></div> -->
+<div class="page-content">
+<div class="col-lg-12 left-pannel">
+				<!-- <div data-ng-controller="createUserMainCtrl"> -->
+					<tabset> <tab data-ng-repeat="tab in tabs"
+						heading="{{tab.title}}" active="tab.active"
+						 select="tabSelected($index)">
+						 
+					<div data-ng-include src="tab.page"></div>
+					</tab> </tabset>
+				<!-- </div> -->
+			</div></div>
 
-<div class="panel panel-primary">
+
+<!-- <div class="panel panel-primary">
        <div class="panel-heading">Form validation report</div>
        <div class="panel-body">
         
@@ -20,4 +32,4 @@
          </form>
          </div>
          </div>
-     </div>
+     </div> -->
