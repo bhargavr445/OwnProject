@@ -13,6 +13,14 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
   templateUrl:'view/studentLogin.html',
   controller:'myCtrl'
 })
+.when('/barcode',{
+  templateUrl:'view/payroll/barcodeMain.html',
+  controller:'barcodeController'
+})
+.when('/barcodeScan',{
+  templateUrl:'view/payroll/scan.html',
+  controller:'barcodeController'
+})
 .otherwise({
   redirectTo:'/home'
 });
