@@ -15,4 +15,6 @@ public interface StudentService {
 
 	List<Student> loadData();
 
+	String deletStudent(Student student);
+
 }

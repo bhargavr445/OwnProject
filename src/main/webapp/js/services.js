@@ -18,6 +18,10 @@ services.factory('myService', function($resource) {
 		loadStudentData : {
 			method : 'GET', isArray: true,
 			params:{'action' : 'loadStudentData'}
+		},
+		deleteStudent : {
+			method: 'POST', isArray: false,
+			params: {'action' : 'deleteStudent'}
 		}
 	});
 

@@ -14,4 +14,6 @@ public interface StudentDao {
 	List<Student> search(Student student);
 
 	List<Student> load();
+
+	String deleteStudent(Student student);
 }

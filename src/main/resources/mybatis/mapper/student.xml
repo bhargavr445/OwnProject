@@ -46,6 +46,9 @@
 	
 	</select>
 	
+	<delete id="deleteStudent" parameterType="studentModel">
 	
+		delete from student where StudentID = #{stuId}
+	</delete>
 	
 </mapper>

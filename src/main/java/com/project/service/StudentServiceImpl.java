@@ -36,6 +36,12 @@ public class StudentServiceImpl implements StudentService{
 		List<Student> loadStudent = studentDao.load();
 		return loadStudent;
 	}
+
+	@Override
+	public String deletStudent(Student student) {
+		String loadStudent = studentDao.deleteStudent(student);
+		return loadStudent;
+	}
 	
 	
 }

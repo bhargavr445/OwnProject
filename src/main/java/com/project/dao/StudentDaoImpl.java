@@ -42,6 +42,19 @@ public class StudentDaoImpl implements StudentDao{
 	
 	}
 
+	@Override
+	public String deleteStudent(Student student) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		int i = sqlSession.delete("deleteStudent",student);
+		if(i ==1){
+			return "deleted successfully";
+		}else{
+			return "not deleted";
+		}
+		
+	}
+
 	
 
 }

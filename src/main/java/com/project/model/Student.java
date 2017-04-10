@@ -7,6 +7,7 @@ public class Student {
 	private Address address;
 	private String userName;
 	private String password;
+	private String action;
 	
 	public Student() {
 		
@@ -54,22 +55,32 @@ public class Student {
 		this.password = password;
 	}
 
-	public Student(int stuId, String stuName, Address address, String userName, String password) {
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
+
+	public Student(int stuId, String stuName, Address address, String userName, String password, String action) {
 		super();
 		this.stuId = stuId;
 		this.stuName = stuName;
 		this.address = address;
 		this.userName = userName;
 		this.password = password;
+		this.action = action;
 	}
 
 	@Override
 	public String toString() {
 		return "Student [stuId=" + stuId + ", stuName=" + stuName + ", address=" + address + ", userName=" + userName
-				+ ", password=" + password + "]";
+				+ ", password=" + password + ", action=" + action + "]";
 	}
+	
+	
 
-	
-	
+		
 	
 }
