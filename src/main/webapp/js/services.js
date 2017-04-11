@@ -8,7 +8,7 @@ services.factory('myService', function($resource) {
 			params: {'action' : 'login'}
 		},
 		saveData:{
-			method: 'GET', isArray: false,
+			method: 'POST', isArray: false,
 			params: {'action' : 'saveStudent'}
 		},
 		searchData : {
@@ -23,6 +23,7 @@ services.factory('myService', function($resource) {
 			method: 'POST', isArray: false,
 			params: {'action' : 'deleteStudent'}
 		}
+	
 	});
 
 });

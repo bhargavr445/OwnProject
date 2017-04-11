@@ -18,10 +18,11 @@ public class StudentDaoImpl implements StudentDao{
 	public Student saveStudent(Student student) {
 		
 		SqlSession sqlSession = null;
-		System.out.println("Student Result ==="+student);
-		System.out.println("SqlSession factory ===" + sqlSessionFactory);
+		//System.out.println("Student Result ==="+student);
+		//System.out.println("SqlSession factory ===" + sqlSessionFactory);
 		sqlSession = sqlSessionFactory.openSession();
 		sqlSession.insert("insertStudent", student);
+		System.out.println("succeessfully Inserted");
 		return student;
 	}
 

@@ -38,6 +38,23 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 		
 	}
 	
+	$scope.addStudent = function(){
+		 $scope.inserted = {
+			      id: $scope.searchResults.length+1,
+			      stuName: ''
+			      
+			    };
+			    $scope.searchResults.push($scope.inserted);
+	};
+	
+	$scope.saveStudent = function(data){
+		
+		myService.saveData(data,function(success){
+			$log.info(success);
+			//$location.path('/dashboard');
+		});
+	};
+	
 	$scope.delete = function(student){
 		student.action = "delete";
 		myService.deleteStudent(student,function(result){

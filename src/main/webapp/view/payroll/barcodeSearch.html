@@ -28,25 +28,52 @@
 			                        <thead style = "color:black;background-color:lightblue">
 			                            <tr>
 			                            	<th>Index</th>
-			                                <th>StudentID</th>
 			                                <th>StudentName</th>
-			                                <th>Id</th>
+			                                
 			                                <th></th>
 <!-- 			                                <th>New</th> -->
 			                            </tr>
 			                        </thead>
 		                            <tbody>
 		                                <tr ng-repeat= "student in searchResults | filter  : search.stuName" >
-		                                	<td>{{$index+1}}</td>
+		                                	<!-- <td>{{$index+1}}</td>
 		                                    <td data-ng-init="id = student.stuName" editable>{{student.stuId}}</td>
 		                                    <td editable>{{student.stuName}}</td>
 		                                    <td editable>{{id}}</td>
-		                                    <td ><a ng-click="delete(student)">Delete</a></td>
-		                                    
-<!-- 		                                    <td>{{student.marks}}</td> -->
+		                                    <td ><a ng-click="delete(student)">Delete</a></td> -->
+		                              <td>{{$index+1}}</td>      
+										 <td>
+						        <!-- editable username (text with validation) -->
+						        <span editable-text="student.stuName" e-name="name" e-form="rowform" onbeforesave="checkName($data, student.stuid)">
+						          {{ student.stuName || 'empty' }}
+						        </span>
+						      </td>
+						     <!--  <td>
+						        editable status (select-local)
+						        <span editable-select="student.stuId" e-name="id" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+						          {{ showStatus(user) }}
+						        </span>
+						      </td> -->
+						      
+						      <td style="white-space: nowrap">
+						        <!-- form -->
+						        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == student">
+						          <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary" ng-click="saveStudent(student)">
+						            save
+						          </button>
+						          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+						            cancel
+						          </button>
+						        </form>
+						        <div class="buttons" ng-show="!rowform.$visible">
+						          <button type="button" class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+						          <button type="button" class="btn btn-danger" ng-click="removeUser($index)">del</button>
+						        </div>  
+						      </td>
                                     </tr>
 		                            </tbody>
 		                        </table>
+		                        <button type="button" class="btn btn-default" ng-click="addStudent()">Add row</button>
        	</div>
       </div>
        
