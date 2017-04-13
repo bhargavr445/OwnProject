@@ -9,7 +9,6 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 					{ title:"FMS", page:"view/payroll/barcodeSearch.html" },
 					{ title:"SCAN w/o QA", page:"view/payroll/barcodeSearch.html"}
 	               
-	               
 	               ];
 	
 	$scope.SearchSubmit = function(fromSource){
@@ -17,14 +16,14 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 			  $scope.searchResults = result;
 			  
 		  });
-		 }
+	 }
 	
 	$scope.scanSubmit = function(){
 		  myService.searchData($scope.contact,function(result){
 			  $scope.scanResults = result;
 			  
 		  });
-		 }
+	 }
 	
 	$scope.tabSelected = function(index){
 		if(index  == 2){
@@ -33,7 +32,7 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 				  $scope.scanResults = result;
 				  
 			  });
-		}
+			}
 		}
 		
 	}
@@ -55,7 +54,7 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 		});
 	};
 	
-	$scope.delete = function(student){
+	$scope.removeUser = function(student){
 		student.action = "delete";
 		myService.deleteStudent(student,function(result){
 			  $scope.scanResults = result;

@@ -40,6 +40,15 @@
 	
 	</select>
 	
+	<select id="loadStudent"  resultMap="studentResultMap">
 	
+		select * from student  
+	
+	</select>
+	
+	<delete id="deleteStudent" parameterType="studentModel">
+	
+		delete from student where StudentID = #{stuId}
+	</delete>
 	
 </mapper>
