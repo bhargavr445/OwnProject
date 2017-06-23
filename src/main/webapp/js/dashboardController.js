@@ -25,28 +25,46 @@ app.controller('myCtrl', function($scope,$http,$log,$location,myService) {
   $scope.save = function(){
     $log.info($scope.myDetails);
   }
-/*$http.get('data/mydetails.json').then(function(sample){
+$http.get('http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=d436c04d23a5a44329eb8255190a84be').then(function(sample){
     $scope.myDetails=sample.data;
     $log.info($scope.myDetails);
-  });*/
+  });
+
+
  /* myService.getData(function(data){
     $scope.myDetails=data;
     $log.info(data);
   });*/
   
-  $scope.search = {};
-  $scope.students = [];
-  $scope.SearchSubmit = function(){
+//  $scope.search = {};
+//  $scope.students = [];
+//  $scope.searchSubmit = function(){
 //	  myService.searchData($scope.search,function(result){
 //		  $scope.students = result;
 //		  
-//	  });
-	  
-	  $location.path('/parent3');
-  }
+//  });
+//	  
+//  }
   
-  myService.loadStudentData(function(data){
-	  $scope.students = data;
+//  myService.loadStudentData(function(data){
+//	  $scope.students = data;
+//  })
+  myService.getCounty(function(data){
+	$scope.countyList = data;  
   })
+ 
+//  myService.loadAllNames(function(data){
+//	  $scope.namesList = data;
+//	  $log.info($scope.namesList);
+//  })
+  
+  
+  
+  $scope.searchSubmit = function(){
+	
+	  myService.searchData($scope.search,function(result){
+		  $scope.students = result;
+	  });
+  };
   
 });

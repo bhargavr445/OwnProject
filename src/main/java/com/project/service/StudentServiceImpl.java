@@ -19,16 +19,17 @@ public class StudentServiceImpl implements StudentService{
 	@Autowired
 	SampleUtilClass sampleutilClass;
 	
+	@Override
 	public Student saveStudent(Student student) {
 		Student str = studentDao.saveStudent(student);
 		return str;
 	}
 
 	@Override
-	public List<Student> search(Student student) {
-		List<Student> searchResult = studentDao.search(student);
-		List<Student> modifiedData = sampleutilClass.modifyData(searchResult);
-		return modifiedData;
+	public List <Student> search(Student student) {
+		List <Student> searchResult = studentDao.search(student);
+//		Student modifiedData = sampleutilClass.modifyData(searchResult);
+		return searchResult;
 	}
 
 	@Override
@@ -42,6 +43,26 @@ public class StudentServiceImpl implements StudentService{
 		String loadStudent = studentDao.deleteStudent(student);
 		return loadStudent;
 	}
-	
+
+	@Override
+	public List<String> loadnames() {
+		// TODO Auto-generated method stub
+		List<String> loadNames = studentDao.loadNames();
+		return loadNames;
+	}
+
+	@Override
+	public List<Student> searchById(Student student) {
+		// TODO Auto-generated method stub
+		List<Student> getById = studentDao.searchById(student);
+		return getById;
+	}
+//	
+	@Override
+	public List<String> getContracts() {
+		List<String> getContracts = studentDao.getContracts();
+		return getContracts;
+	}
+
 	
 }

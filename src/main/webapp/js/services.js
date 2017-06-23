@@ -19,12 +19,23 @@ services.factory('myService', function($resource) {
 			method : 'GET', isArray: true,
 			params:{'action' : 'loadStudentData'}
 		},
+		loadAllNames : {
+			method : 'GET', isArray : true,
+			params : {'action':'loadAllNames'}
+		},
 		deleteStudent : {
 			method: 'POST', isArray: false,
 			params: {'action' : 'deleteStudent'}
+		},
+		getSearchData : {
+			method : 'POST', isArray: true,
+			params: {'action': 'getSearchData'}
+		},
+		getCounty : {
+			method : 'GET', isArray:true,
+			params: {'action':'getCountyList'}
 		}
 	
 	});
 
 });
-

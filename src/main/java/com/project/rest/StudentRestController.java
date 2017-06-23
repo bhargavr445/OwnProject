@@ -64,7 +64,23 @@ public class StudentRestController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String search(Student  student) throws JsonGenerationException, JsonMappingException, IOException  {
 		
-		List<Student> str = studentService.search(student);
+		List <Student> str = studentService.search(student);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+		
+		
+	}
+	
+	@POST
+	@Path("getSearchData")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String searchById(Student  student) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<Student> str = studentService.searchById(student);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -86,6 +102,38 @@ public class StudentRestController {
 		
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;
+		
+		
+	}
+	
+	@GET
+	@Path("loadAllNames")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String loadNames() throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<String> str = studentService.loadnames();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String studentNames = mapper.writeValueAsString(str);
+		return studentNames;
+		
+		
+	}
+	
+	@GET
+	@Path("getCountyList")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getContracts() throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<String> str = studentService.getContracts();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String contractList = mapper.writeValueAsString(str);
+		return contractList;
 		
 		
 	}

@@ -3,18 +3,22 @@
        <div class="panel-body">
         
          <div class="validate">
-         <form name="contactForm" novalidate>
-         <input ng-model="contact.stuName" placeholder="Enter Name" ng-required="true" ng-pattern ="/^[a-zA-Z]*$/" name="name"/>
-         <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
-           <small style="color: red; display: block;">Enter valid Name</small>
-         </div>
-       </br><input ng-pattern ="/^[0-9]*$/" ng-model="contact.stuId" ng-required="true" placeholder="Enter ID" name="id" minlength = "5" maxlength = "6" required/>
-        <div ng-show = "contactForm.$submitted">
-         <div ng-show="contactForm.$submitted.id.$touched || contactForm.id.$invalid || contactForm.id.$error.required">
-           <small style="color: red; display: block;">Enter valid id</small>
-         </div >
-</div>
+         <form name="contactForm">
+<!--          <input ng-model="contact.jobTitle placeholder="Enter Name" ng-required="true" ng-pattern ="/^[a-zA-Z]*$/" name="name"/> -->
+<!--          <div ng-show="contactForm.name.$touched && contactForm.name.$invalid"> -->
+<!--            <small style="color: red; display: block;">Enter valid Name</small> -->
+<!--          </div> -->
+       </br><input  ng-model="contact.department"  placeholder="Enter ID" name="id"/>
+<!--         <div ng-show = "contactForm.$submitted"> -->
+<!--          <div ng-show="contactForm.$submitted.id.$touched || contactForm.id.$invalid || contactForm.id.$error.required"> -->
+<!--            <small style="color: red; display: block;">Enter valid id</small> -->
+<!--          </div > -->
+         
+         
+<!-- </div> -->
        </br><input type="submit" value="Submit" ng-click="scanSubmit()"/>
+        </br><input type="submit" value="GET ALL EMP DATA" ng-click="getAllData()"/>
+       
          </form>
          </div>
          </div>
@@ -24,23 +28,36 @@
      	<div class="panel-heading">Scan Table Reports
        	</div>
        	<div class="panel-body">
-       	<table id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable" style="width:100%;cellspacing:0" data-ng-show = "students.length != 0"> <!-- table-striped  -->
+       	 <label>Department</label>
+		                        <select ng-model = "selectedDept" ng-change="getSelectedData(selectedDept)" >
+ 		                        <option ng-repeat = "department in departmentsList" value="{{department.department}}">{{department.department}}</option> 
+		                        </select>
+		                        <select ng-model = "selecteRange" ng-change="getSelectedData(selectedRange)" >
+ 		                        <option ng-repeat = "region in regionList" >{{region}}</option> 
+		                        </select>
+		                        <input type="text" ng-model="search">
+<!-- 		                        <img ng-src = "demoPics/UploadFile.png"/> -->
+
+<button type="submit" ><a href="#/addStudent">Add</a></button>
+       	<table datatable="" id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable" style="width:100%;cellspacing:0" data-ng-show = "students.length != 0"> <!-- table-striped  -->
 			                        <thead style = "color:black;background-color:lightblue">
 			                            <tr>
-			                            	<th>Index</th>
-			                                <th>StudentID</th>
-			                                <th>StudentName</th>
-			                                <th>Id</th>
-<!-- 			                                <th>New</th> -->
+			                                <th>NAME</th>
+			                                <th>JOB TITLE</th>
+			                                <th>DEPARTMENT</th>
+			                                <th>ANNUAL SALARY</th>
+			                                <th>ESTIMATED ANNUAL SALARY</th>
+			                                <th>Action</th>
 			                            </tr>
 			                        </thead>
 		                            <tbody>
-		                                <tr ng-repeat= "student in scanResults | filter  : search.stuName">
-		                                	<td>{{$index+1}}</td>
-		                                    <td data-ng-init="id = student.stuName">{{student.stuId}}</td>
-		                                    <td>{{student.stuName}}</td>
-		                                    <td>{{id}}</td>
-<!-- 		                                    <td>{{student.marks}}</td> -->
+		                                <tr ng-repeat= "student in studentScanResult | filter:search ">
+		                                    <td>{{student.name}}</td>
+		                                    <td><a href = "" ng-click = "goToview(student)">{{student.jobTitle}}</a></td>
+		                                    <td>{{student.department}}</td>
+		                                    <td>{{student.annualSalary}}</td>
+		                                    <td>{{student.estimatedAnnualSalary}}</td>
+		                                    <th><button type="submit" value="submit" ng-click="deleteStudent(student)"></th>
                                     </tr>
 		                            </tbody>
 		                        </table>

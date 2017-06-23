@@ -1,4 +1,4 @@
-app.controller('barcodeController', function($scope,$http,$log,myService) {
+app.controller('barcodeController', function($scope,$rootScope,$http,$log,$location,BarcodeService) {
 			
 	$scope.contact = {};
 	
@@ -11,59 +11,71 @@ app.controller('barcodeController', function($scope,$http,$log,myService) {
 	               
 	               ];
 	
-	$scope.SearchSubmit = function(fromSource){
-		  myService.searchData($scope.contact,function(result){
-			  $scope.searchResults = result;
-			  
-		  });
-	 }
+	if($rootScope.index != undefined && $rootScope.index != null){
+		$scope.tabs[$rootScope.index].active = true;
+	}
+	
+	
+	BarcodeService.getDepartments(function(data){
+		$scope.departmentsList = data;
+	});
+	
+	$scope.goToScan = function(){
+		$location.path('/barcode');
+	};
+	
+	$scope.selectedIndex = function(index){
+		$rootScope.index = index;
+		
+	};
+	
+	$scope.addNewStudent= function(student){
+		BarcodeService.addNewStudent(student,function(data){
+			$scope.msg = data;
+			$location.path('/barcode');
+		})
+	};
+	
+	$scope.deleteStudent = function(student){
+		BarcodeService.deleteStudent(student, function(result){
+			if(result == "1"){
+				$log.info("StudentSuccesfully Deleted");
+			}
+			else{
+				$log.info("Operation UnSuccesfull");
+			}
+		})
+	};
 	
 	$scope.scanSubmit = function(){
-		  myService.searchData($scope.contact,function(result){
-			  $scope.scanResults = result;
-			  
-		  });
-	 }
-	
-	$scope.tabSelected = function(index){
-		if(index  == 2){
-		if($scope.contact.stuName != null && $scope.contact.stuName != ""){
-			 myService.searchData($scope.contact,function(result){
-				  $scope.scanResults = result;
-				  
-			  });
-			}
-		}
-		
+		BarcodeService.submitStudent($scope.contact, function(data){
+			$scope.studentScanResult = data;
+			$scope.studentFmsResult = data;
+		})
+	};
+	BarcodeService.getRegionIdlist(function(data){
+		$scope.regionList = data;
+	});
+	$scope.getAllData = function(){
+		BarcodeService.getAllData(function(data){
+			$scope.studentScanResult = data;
+		})
 	}
 	
-	$scope.addStudent = function(){
-		 $scope.inserted = {
-			      id: $scope.searchResults.length+1,
-			      stuName: ''
-			      
-			    };
-			    $scope.searchResults.push($scope.inserted);
-	};
-	
-	$scope.saveStudent = function(data){
-		
-		myService.saveData(data,function(success){
-			$log.info(success);
-			//$location.path('/dashboard');
+	$scope.getSelectedData = function(selectedData){
+	//	var obj = {};
+	//	obj.department = selectedData;
+		BarcodeService.getSelectedData($.param({deptName : selectedData}), function(data){
+			$scope.studentScanResult = data;
+		})
+	}
+	$scope.goToview = function(student){
+		$scope.tabs[1].active=true;
+//		$scope.student = {};
+//		$scope.student.jobTitle = student.jobtitle;
+		BarcodeService.getListByJobTitle(student,function(data){
+			$scope.empListWithJobTitle = data;
 		});
-	};
-	
-	$scope.removeUser = function(student){
-		student.action = "delete";
-		myService.deleteStudent(student,function(result){
-			  $scope.scanResults = result;
-			  myService.searchData($scope.contact,function(result){
-				  $scope.searchResults = result;
-				  
-			  });
-			  
-		  });
+		
 	}
-		 
 });

@@ -27,11 +27,11 @@ public class StudentDaoImpl implements StudentDao{
 	}
 
 	@Override
-	public List<Student> search(Student student) {
+	public List <Student> search(Student student) {
 		SqlSession sqlSession = null;
 		sqlSession = sqlSessionFactory.openSession();
-		List<Student> searStudent = sqlSession.selectList("searchStudent", student);
-		return searStudent;
+		List <Student> searchStudent =  sqlSession.selectList("searchStudent", student);
+		return searchStudent;
 	}
 
 	@Override
@@ -54,6 +54,31 @@ public class StudentDaoImpl implements StudentDao{
 			return "not deleted";
 		}
 		
+	}
+	@Override
+	public List<String> loadNames() {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<String> loadNames = sqlSession.selectList("loadStudentNames");
+		return loadNames;
+		
+	}
+
+	@Override
+	public List<Student> searchById(Student student) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<Student> getById = sqlSession.selectList("searchById");
+		return getById;
+	}
+
+	@Override
+	public List<String> getContracts() {
+		// TODO Auto-generated method stub
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<String> getContracts = sqlSession.selectList("getContracts");
+		return getContracts;
 	}
 
 	

@@ -6,8 +6,9 @@
 <mapper namespace="Student">
 
 	<resultMap id="studentResultMap" type="studentModel">
-		<id property="stuId" column="StudentID" />
-		<result property="stuName" column="StudentName"/>
+ 		<id column="ID" property="stuId"  /> 
+		<result  column="NAME" property="stuName"/>
+	
 		<association property="address" resultMap="AddressResultMap" />
 <!-- 		<collection property="ratingStates" column="id" -->
 <!-- 			ofType="StateEntity" resultMap="stateEntityResult" /> -->
@@ -31,24 +32,45 @@
               
     </update>
 	
+<!-- 	<select id="searchById"  resultMap="studentResultMap"> -->
 	
+<!-- 		select * from student where StudentId = (#{stuId})  -->
+	
+<!-- 	</select> -->
+	<select id="searchById"  resultMap="studentResultMap">
+	
+		select * from BARCODE where ID = (#{stuId}) 
+	
+	</select>
 	
 		
 	<select id="searchStudent"  resultMap="studentResultMap">
 	
-		select * from student where StudentName like (#{stuName}) 
+		select * from EMP where policyId like (#{stuId}) 
+	
+	</select>
+	
+	<select id="getContracts"   resultMap="studentResultMap">
+	
+		select distinct county from EMP 
+	
+	</select>
+	
+	<select id="loadStudentNames"  resultMap="studentResultMap">
+	
+		select  name from student 
 	
 	</select>
 	
 	<select id="loadStudent"  resultMap="studentResultMap">
 	
-		select * from student  
+		select * from EMP 
 	
 	</select>
 	
-	<delete id="deleteStudent" parameterType="studentModel">
+<!-- 	<delete id="deleteStudent" parameterType="studentModel"> -->
 	
-		delete from student where StudentID = #{stuId}
-	</delete>
+<!-- 		delete from student where StudentID = #{stuId} -->
+<!-- 	</delete> -->
 	
 </mapper>

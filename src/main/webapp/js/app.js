@@ -1,20 +1,20 @@
-var app = angular.module('myOwnApp', ['ngRoute','myApp.services','ui.utils','ui.bootstrap','reference','xeditable']);
+var app = angular.module('myOwnApp', ['ngRoute','myApp.services','BarcodeService','ui.utils','ui.bootstrap','reference','xeditable']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
   .when('/home', {
     templateUrl:'view/home.html',
     controller:'myCtrl'
   })
-.when('/table',{
-  templateUrl:'view/table1.html',
-  controller:'myCtrl'
+.when('/barcode',{
+  templateUrl:'view/payroll/barcodeMain.html',
+  controller:'barcodeController'
 })
 .when('/student',{
   templateUrl:'view/studentLogin.html',
   controller:'myCtrl'
 })
-.when('/barcode',{
-  templateUrl:'view/payroll/barcodeMain.html',
+.when('/addStudent',{
+  templateUrl:'view/payroll/addStudent.html',
   controller:'barcodeController'
 })
 .when('/barcodeScan',{

@@ -1,20 +1,15 @@
 <div class="panel panel-primary">
-       <div class="panel-heading">Barcode Search</div>
+       <div class="panel-heading">Search Student</div>
        <div class="panel-body">
         
          <div class="validate">
          <form name="contactForm" novalidate>
-         <input ng-model="contact.stuName" placeholder="Enter Name" ng-required="true" ng-pattern ="/^[a-zA-Z]*$/" name="name"/>
-         <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
-           <small style="color: red; display: block;">Enter valid Name</small>
-         </div>
-       </br><input ng-pattern ="/^[0-9]*$/" ng-model="contact.stuId" ng-required="true" placeholder="Enter ID" name="id" minlength = "5" maxlength = "6" required/>
-        <div ng-show = "contactForm.$submitted">
-         <div ng-show="contactForm.$submitted.id.$touched || contactForm.id.$invalid || contactForm.id.$error.required">
-           <small style="color: red; display: block;">Enter valid id</small>
-         </div >
+         <input ng-model="contact.department" placeholder="Enter Dept"  name="name"/>
+         
+       
+        
 </div>
-       </br><input type="submit" value="Submit" ng-click="SearchSubmit('search')"/>
+       </br><input type="submit" value="Add" ng-click="addNewStudent(contact)"/>
          </form>
          </div>
          </div>
@@ -27,54 +22,29 @@
        	<table id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable" style="width:100%;cellspacing:0" data-ng-show = "students.length != 0"> <!-- table-striped  -->
 			                        <thead style = "color:black;background-color:lightblue">
 			                            <tr>
-			                            	<th>Index</th>
-			                                <th>StudentName</th>
-			                                
-			                                <th></th>
-<!-- 			                                <th>New</th> -->
+			                                <th>NAME</th>
+			                                <th>JOB TITLE</th>
+			                                <th>DEPARTMENT</th>
+			                                <th>ANNUAL SALARY</th>
+			                                <th>ESTIMATED ANNUAL SALARY</th>
 			                            </tr>
 			                        </thead>
 		                            <tbody>
-		                                <tr ng-repeat= "student in searchResults | filter  : search.stuName" >
-		                                	<!-- <td>{{$index+1}}</td>
-		                                    <td data-ng-init="id = student.stuName" editable>{{student.stuId}}</td>
-		                                    <td editable>{{student.stuName}}</td>
-		                                    <td editable>{{id}}</td>
-		                                    <td ><a ng-click="delete(student)">Delete</a></td> -->
-		                              <td>{{$index+1}}</td>      
-										 <td>
-						        <!-- editable username (text with validation) -->
-						        <span editable-text="student.stuName" e-name="name" e-form="rowform" onbeforesave="checkName($data, student.stuid)">
-						          {{ student.stuName || 'empty' }}
-						        </span>
-						      </td>
-						     <!--  <td>
-						        editable status (select-local)
-						        <span editable-select="student.stuId" e-name="id" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-						          {{ showStatus(user) }}
-						        </span>
-						      </td> -->
-						      
-						      <td style="white-space: nowrap">
-						        <!-- form -->
-						        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == student">
-						          <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary" ng-click="saveStudent(student)">
-						            save
-						          </button>
-						          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
-						            cancel
-						          </button>
-						        </form>
-						        <div class="buttons" ng-show="!rowform.$visible">
-						          <button type="button" class="btn btn-primary" ng-click="rowform.$show()">edit</button>
-						          <button type="button" class="btn btn-danger" ng-click="delete(student)">del</button>
-						        </div>  
-						      </td>
+		                                <tr ng-repeat= "student in studentFmsResult | filter:search ">
+		                                    <td>{{student.name}}</td>
+		                                    <td><a href = "" ng-click = "goToview(student)">{{student.jobTitle}}</a></td>
+		                                    <td>{{student.department}}</td>
+		                                    <td>{{student.annualSalary}}</td>
+		                                    <td>{{student.estimatedAnnualSalary}}</td>
                                     </tr>
 		                            </tbody>
 		                        </table>
-		                        <button type="button" class="btn btn-default" ng-click="addStudent()">Add row</button>
+		                        
        	</div>
       </div>
+      
+      
+      
+	
        
      

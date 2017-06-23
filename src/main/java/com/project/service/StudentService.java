@@ -11,10 +11,16 @@ public interface StudentService {
 
 	Student saveStudent(Student student);
 
-	List<Student> search(Student student);
+	List <Student> search(Student student);
 
 	List<Student> loadData();
 
 	String deletStudent(Student student);
+
+	List<String> loadnames();
+
+	List<Student> searchById(Student student);
+
+	List<String> getContracts();
 
 }
