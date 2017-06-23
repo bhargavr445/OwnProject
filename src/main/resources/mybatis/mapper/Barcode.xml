@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Barcode">
+
+	<resultMap id="barcodeResultMap" type="barcodeModel">
+		<id column="NAME" property="name"  />
+		<result  column="JOB_TITLE" property="jobTitle"/>
+		<result  column="DEPARTMENT" property="department"/>
+		<result  column="ANNUAL_SALARY" property="annualSalary"/>
+		<result  column="ESTIMATED_ANNUAL_SALARY" property="estimatedAnnualSalary"/>
+</resultMap>
+	
+	
+	
+	<select id="searchByBarId" parameterType="barcodeModel"  resultMap="barcodeResultMap">
+	
+		select * from EMPLOYEE where DEPARTMENT LIKE (#{department}) 
+	
+	</select>
+	
+	<select id="getAllDetails" parameterType="barcodeModel"  resultMap="barcodeResultMap">
+	
+		select * from EMPLOYEE 
+	
+	</select>
+	
+	<select id="getDeptList" parameterType="barcodeModel"  resultMap="barcodeResultMap">
+	
+		SELECT distinct department  FROM EMPLOYEE
+	
+	</select>
+	<select id="goToViewtab" parameterType="barcodeModel"  resultMap="barcodeResultMap">
+	
+		SELECT *  FROM EMPLOYEE where JOB_TITLE LIKE (#{jobTitle})
+	
+	</select>
+	<insert id="addnewStudent" parameterType="barcodeModel" >   
+	insert into EMPLOYEE
+	(NAME,
+	JOB_TITLE,
+	DEPARTMENT,
+	ESTIMATED_ANNUAL_SALARY,
+	ANNUAL_SALARY) 
+	values
+	(#{name},
+	#{jobTitle},
+	#{department},
+	#{estimatedAnnualSalary},
+	#{annualSalary})
+	</insert>
+	
+	
+	<delete id="deleteStudent" parameterType="barcodeModel">
+		delete  from EMPLOYEE where NAME LIKE #{name}
+	</delete>
+	<select id="regionIdlist" resultType='java.lang.Integer'>
+		select distinct substring(ANNUAL_SALARY, 2, 1) from EMPLOYEE
+	</select>
+	
+	<select id="selectedData" parameterType="string"  resultMap="barcodeResultMap">
+	
+		SELECT *  FROM EMPLOYEE where DEPARTMENT LIKE (#{deptName})
+	
+	</select>
+	
+</mapper>
