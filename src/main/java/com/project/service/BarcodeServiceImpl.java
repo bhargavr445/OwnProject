@@ -54,6 +54,7 @@ public class BarcodeServiceImpl implements BarcodeService{
 
 	@Override
 	public List<Barcode> getSelectedData(String deptName) {
+		
 		List<Barcode> selectedList = barcodeDao.getSelectedData(deptName);
 		return selectedList;
 	}

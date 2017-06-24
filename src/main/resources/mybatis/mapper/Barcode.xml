@@ -60,9 +60,17 @@
 		select distinct substring(ANNUAL_SALARY, 2, 1) from EMPLOYEE
 	</select>
 	
-	<select id="selectedData" parameterType="string"  resultMap="barcodeResultMap">
+	<select id="selectedData" parameterType="Barcode"  resultMap="barcodeResultMap">
 	
-		SELECT *  FROM EMPLOYEE where DEPARTMENT LIKE (#{deptName})
+		SELECT *  FROM EMPLOYEE where 1=1  
+		
+		<if test="department != null and department == 'ALL'">
+			
+		</if>
+		<if test="department != null and department != 'ALL'">
+			and DEPARTMENT LIKE (#{department})
+		</if>
+		
 	
 	</select>
 	
