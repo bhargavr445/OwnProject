@@ -384,6 +384,9 @@ caption {
 
 th {
   text-align: left; }
+  
+tr {
+	text-align: center;}
 
 label {
   display: inline-block;

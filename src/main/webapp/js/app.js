@@ -17,6 +17,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
   templateUrl:'view/payroll/addStudent.html',
   controller:'barcodeController'
 })
+.when('/editStudent',{
+	templateUrl:'view/payroll/editStudent.html',
+	controller:'barcodeController'
+})
 .when('/barcodeScan',{
   templateUrl:'view/payroll/scan.html',
   controller:'barcodeController'
