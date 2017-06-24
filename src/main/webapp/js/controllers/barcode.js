@@ -18,6 +18,10 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	
 	BarcodeService.getDepartments(function(data){
 		$scope.departmentsList = data;
+
+		$scope.departmentsList.splice(0,0,
+				{"department":"ALL"}
+		);
 	});
 	
 	$scope.goToScan = function(){
@@ -55,6 +59,8 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	};
 	BarcodeService.getRegionIdlist(function(data){
 		$scope.regionList = data;
+		
+		$scope.regionList.splice(0,0,"ALL");
 	});
 	$scope.getAllData = function(){
 		BarcodeService.getAllData(function(data){
@@ -67,6 +73,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	//	obj.department = selectedData;
 		BarcodeService.getSelectedData($.param({deptName : selectedData}), function(data){
 			$scope.studentScanResult = data;
+			
 		})
 	}
 	$scope.goToview = function(student){
