@@ -34,17 +34,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 //		});
 //	};
 	
-	$scope.editStudent = function(student){
-		BarcodeService.editStudent(student, function(data){
-			$scope.msg = data;
-			if(msg =='1'){
-				$log($scope.msg);
-			}
-			else{
-				$log($scope.msg);
-			}
-		});
-	};
+
 	
 	
 	$scope.selectedIndex = function(index){
@@ -114,6 +104,31 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$scope.empListWithJobTitle = data;
 		});
 		
-	}
+	};
+	
+	$scope.editStudent = function(student){
+		//	localStorage.setitem("student",JSON.stringify(student));
+			$rootScope.student = student;
+			$location.path('/editStudent');
+		}
+
+});
+
+app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$location,BarcodeService) {
+	
+	$scope.student = $rootScope.student;
+	
+	$scope.editStudent = function(student){
+		BarcodeService.editStudent(student, function(data){
+			$scope.msg = data;
+			$location.path('/barcode');
+//			if(msg =='1'){
+//				$log($scope.msg);
+//			}
+//			else{
+//				$log($scope.msg);
+//			}
+		});
+	};
 });
 

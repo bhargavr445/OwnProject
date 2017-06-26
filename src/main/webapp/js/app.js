@@ -19,7 +19,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 })
 .when('/editStudent',{
 	templateUrl:'view/payroll/editStudent.html',
-	controller:'barcodeController'
+	controller:'barcodeEditController'
 })
 .when('/barcodeScan',{
   templateUrl:'view/payroll/scan.html',
