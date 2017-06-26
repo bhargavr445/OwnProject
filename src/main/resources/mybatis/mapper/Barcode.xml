@@ -66,4 +66,23 @@
 	
 	</select>
 	
+	<select id="getSalInfo" parameterType="string"  resultMap="barcodeResultMap">
+	
+		SELECT ANNUAL_SALARY  FROM EMPLOYEE where NAME LIKE (#{name})
+	
+	</select>
+	<update id="editStudent" parameterType="barcodeModel">
+	update EMPLOYEE SET 
+	NAME = #{name},
+	ANNUAL_SALARY = #{annualSalary},
+	DEPARTMENT =#{department},
+	ESTIMATED_ANNUAL_SALARY=#{estimatedAnnualSalary},
+	JOB_TITLE = #{jobTitle}
+	where NAME = #{name}
+<!-- 	update EMPLOYEE SET (NAME,ANNUAL_SALARY,DEPARTMENT,ESTIMATED_ANNUAL_SALARY,JOB_TITLE) -->
+<!-- 	values -->
+<!-- 	(#{name},#{annualSalary},#{department},#{estimatedAnnualSalary},#{jobTitle}) -->
+<!-- 	where NAME = #{name} -->
+	
+	</update>
 </mapper>

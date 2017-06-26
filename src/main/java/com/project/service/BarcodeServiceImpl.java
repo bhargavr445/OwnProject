@@ -64,6 +64,18 @@ public class BarcodeServiceImpl implements BarcodeService{
 		return regionid;
 	}
 
+	@Override
+	public List <String> getSalInfo(String name) {
+		List <String> salDetails = barcodeDao.getSalInfo(name);
+		return salDetails;
+	}
+
+	@Override
+	public int editStudent(Barcode barcode) {
+		int msg = barcodeDao.editStudent(barcode);
+		return msg;
+	}
+
 	
 
 	

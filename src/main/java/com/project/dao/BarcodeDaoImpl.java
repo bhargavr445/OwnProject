@@ -88,4 +88,21 @@ public class BarcodeDaoImpl implements BarcodeDao {
 		return regionId;
 	}
 
+
+	@Override
+	public List <String> getSalInfo(String name) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List <String> salDetails = sqlSession.selectList("getSalInfo", name);
+		return salDetails;
+	}
+
+	@Override
+	public int editStudent(Barcode barcode) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		int msg = sqlSession.update("editStudent", barcode);
+		return msg;
+	}
+
 }

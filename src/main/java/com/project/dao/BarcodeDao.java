@@ -22,4 +22,8 @@ public interface BarcodeDao {
 
 	List<Integer> getRegionIdlist();
 
+	List <String> getSalInfo(String name);
+
+	int editStudent(Barcode barcode);
+
 }

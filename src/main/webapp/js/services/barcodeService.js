@@ -34,8 +34,15 @@ services.factory('BarcodeService', function($resource) {
 		getRegionIdlist: {
 			method:'GET', isArray:true,
 			params:{'action':'getRegionIdlist'}
+		},
+		getSalInfo: {
+			method:'POST',isArray:true,
+			params:{'action':'getSalInfo'}
+		},
+		editStudent: {
+			method: 'POST', isArray:false,
+			params: {'action':'editStudent'}
 		}
-	
 	});
 
 });

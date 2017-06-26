@@ -127,6 +127,30 @@ public class BarcodeStudentRestController {
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson; 
 	}
+//	getSalInfo
+	@POST
+	@Path("getSalInfo")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getSalInfo(@FormParam("name") String name) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List <String> salDetails = barcodeService.getSalInfo(name);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(salDetails);
+		return studentJson; 
+	}
+	
+	@POST
+	@Path("editStudent")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String editStudent(Barcode barcode) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		int msg = barcodeService.editStudent(barcode);
+		ObjectMapper mapper = new ObjectMapper();
+		String msg1 = mapper.writeValueAsString(msg);
+		return msg1; 
+	}
 	
 }
 

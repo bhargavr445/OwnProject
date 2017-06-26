@@ -26,6 +26,27 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 		$location.path('/barcode');
 	};
 	
+//	$scope.getSal = function(student){
+//		$scope.student = {};
+//		$scope.student.name = student.annualSalary;
+//		BarcodeService.getSalInfo($scope.student,function(data){
+//			$scope.salDetails = data;
+//		});
+//	};
+	
+	$scope.editStudent = function(student){
+		BarcodeService.editStudent(student, function(data){
+			$scope.msg = data;
+			if(msg =='1'){
+				$log($scope.msg);
+			}
+			else{
+				$log($scope.msg);
+			}
+		});
+	};
+	
+	
 	$scope.selectedIndex = function(index){
 		$rootScope.index = index;
 		
@@ -72,6 +93,19 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$scope.studentScanResult = data;
 		})
 	}
+	
+	$scope.getSal = function(empName){
+		BarcodeService.getSalInfo($.param({name : empName}),function(data){
+			$scope.salDetails = data;
+		})
+	}
+//	$scope.getSal = function(student){
+//		$scope.barcode = {};
+//		$scope.barcode.name = student.name;
+//		BarcodeService.getSalInfo(barcode,function(data){
+//			$scope.salDetails = data;
+//		});
+//	};
 	$scope.goToview = function(student){
 		$scope.tabs[1].active=true;
 //		$scope.student = {};
@@ -82,3 +116,4 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 		
 	}
 });
+
