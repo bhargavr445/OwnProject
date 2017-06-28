@@ -18,8 +18,7 @@ public class SampleUtilClass {
 			}else{
 				student.setStuName("DEF");
 			}
-		}
-				
+		}	
 		return stuList;
 	}
 }
