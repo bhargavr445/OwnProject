@@ -11,7 +11,7 @@
 		<result  column="DEPARTMENT" property="department"/>
 		<result  column="ANNUAL_SALARY" property="annualSalary"/>
 		<result  column="ESTIMATED_ANNUAL_SALARY" property="estimatedAnnualSalary"/>
-</resultMap>
+	</resultMap>
 	
 	
 	

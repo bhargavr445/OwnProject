@@ -35,13 +35,11 @@
 		                        <select ng-model = "selecteRange" ng-change="getSelectedData(selectedRange)" >
  		                        <option ng-repeat = "region in regionList" >{{region}}</option> 
 		                        </select>
-		                        <input type="text" ng-model="search">
+		                        <input type="text"  class="form-control" ng-model="search" placeholder="Filter Table Data">
 <!-- 		                        <img ng-src = "demoPics/UploadFile.png"/> -->
 
-<button type="submit" ><a href="#/addStudent">Add</a></button>
-<button type="submit" ><a href="#/editStudent">EDIT</a></button> 
-<input type="text" ng-model="empName" placeholder="Enter name"/>
-<button type="submit" ng-click="getSal(empName)">Get Sal Details</button>
+<button class= "btn btn-primary btn-sm" type="submit" ><a href="#/addStudent">Add</a></button>
+
 
        	<table datatable="" id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable" style="width:100%;cellspacing:0" data-ng-show = "students.length != 0"> <!-- table-striped  -->
 			                        <thead style = "color:black;background-color:lightblue">
@@ -62,10 +60,12 @@
 		                                    <td>{{student.annualSalary}}</td>
 		                                    <td>{{student.estimatedAnnualSalary}}</td>
 		                                    <th>
-<!-- 		                                    <button type="submit" value="submit" class="btn btn-primary btn-sm" ng-click="editStudent(student)"> <i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button> -->
-<button type="submit" ><a  ng-click="editStudent(student)">EDIT</a></button> 
+	                                    
+<!--  <button type="submit" ><a  ng-click="editStudent(student)">EDIT</a></button>   -->
+ <button type="submit" value="submit" class="btn btn-primary btn-sm" ng-click="editStudent(student)"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
 		                                    <button type="submit" value="submit" class="btn btn-danger btn-sm" ng-click="deleteStudent(student)">
   <i class="glyphicon glyphicon-trash" aria-hidden="true"></i></button>
+ 
    </th>
                                     </tr>
 		                            </tbody>

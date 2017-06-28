@@ -1,6 +1,7 @@
 app.controller('barcodeController', function($scope,$rootScope,$http,$log,$location,BarcodeService) {
 			
 	$scope.contact = {};
+	$scope.department = {};
 	
 	$scope.tabs = [
 					{ title:"Search", page:"view/payroll/barcodeSearch.html", active: true },
@@ -13,33 +14,27 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	
 	if($rootScope.index != undefined && $rootScope.index != null){
 		$scope.tabs[$rootScope.index].active = true;
+		if($rootScope.index == 2){
+			
+			$scope.selectedDept = $rootScope.deptName;
+			//$scope.getSelectedData($scope.selectedDept);
+			BarcodeService.getSelectedData($.param({deptName : $scope.selectedDept}), function(data){
+				$scope.studentScanResult = data;
+			})
+		}
 	}
 	
 	
 	BarcodeService.getDepartments(function(data){
 		$scope.departmentsList = data;
-		
-		
 	});
 	
 	$scope.goToScan = function(){
 		$location.path('/barcode');
 	};
-	
-//	$scope.getSal = function(student){
-//		$scope.student = {};
-//		$scope.student.name = student.annualSalary;
-//		BarcodeService.getSalInfo($scope.student,function(data){
-//			$scope.salDetails = data;
-//		});
-//	};
-	
-
-	
-	
-	$scope.selectedIndex = function(index){
-		$rootScope.index = index;
 		
+	$scope.selectedIndex = function(index){
+		$rootScope.index = index;	
 	};
 	
 	$scope.addNewStudent= function(){
@@ -51,12 +46,6 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	
 	$scope.deleteStudent = function(student){
 		BarcodeService.deleteStudent(student, function(result){
-			if(result == "1"){
-				$log.info("StudentSuccesfully Deleted");
-			}
-			else{
-				$log.info("Operation UnSuccesfull");
-			}
 		})
 	};
 	
@@ -77,8 +66,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	}
 	
 	$scope.getSelectedData = function(selectedData){
-	//	var obj = {};
-	//	obj.department = selectedData;
+		$rootScope.deptName = selectedData;
 		BarcodeService.getSelectedData($.param({deptName : selectedData}), function(data){
 			$scope.studentScanResult = data;
 		})
@@ -89,17 +77,10 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$scope.salDetails = data;
 		})
 	}
-//	$scope.getSal = function(student){
-//		$scope.barcode = {};
-//		$scope.barcode.name = student.name;
-//		BarcodeService.getSalInfo(barcode,function(data){
-//			$scope.salDetails = data;
-//		});
-//	};
+
 	$scope.goToview = function(student){
 		$scope.tabs[1].active=true;
-//		$scope.student = {};
-//		$scope.student.jobTitle = student.jobtitle;
+		$
 		BarcodeService.getListByJobTitle(student,function(data){
 			$scope.empListWithJobTitle = data;
 		});
@@ -107,7 +88,6 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	};
 	
 	$scope.editStudent = function(student){
-		//	localStorage.setitem("student",JSON.stringify(student));
 			$rootScope.student = student;
 			$location.path('/editStudent');
 		}
@@ -118,17 +98,23 @@ app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$l
 	
 	$scope.student = $rootScope.student;
 	
+	$scope.originalStudent = angular.copy($scope.student);
+	
+	$scope.reset = function(){
+		$scope.student = angular.copy($scope.originalStudent);
+	};
+	
+	
+	
 	$scope.editStudent = function(student){
 		BarcodeService.editStudent(student, function(data){
 			$scope.msg = data;
 			$location.path('/barcode');
-//			if(msg =='1'){
-//				$log($scope.msg);
-//			}
-//			else{
-//				$log($scope.msg);
-//			}
 		});
+	};
+	
+	$scope.goToScan = function(){
+		$location.path('/barcode');
 	};
 });
 

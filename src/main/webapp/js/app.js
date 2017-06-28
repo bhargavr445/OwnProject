@@ -1,4 +1,4 @@
-var app = angular.module('myOwnApp', ['ngRoute','myApp.services','BarcodeService','ui.utils','ui.bootstrap','reference','xeditable']);
+var app = angular.module('myOwnApp', ['ngRoute','myApp.services','BarcodeService','contractService','ui.utils','ui.bootstrap','reference','xeditable']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
   .when('/home', {
@@ -24,6 +24,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 .when('/barcodeScan',{
   templateUrl:'view/payroll/scan.html',
   controller:'barcodeController'
+})
+.when('/contract',{
+	templateUrl:'view/contract/contractMain.html',
+		controller: 'contractController'
 })
 .otherwise({
   redirectTo:'/home'

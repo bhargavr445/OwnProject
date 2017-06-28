@@ -9,12 +9,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="studentModel" type="com.project.model.Student" />		
 		<typeAlias alias="addressModel" type="com.project.model.Address" />
 		<typeAlias alias="barcodeModel" type="com.project.model.Barcode" />
+<!-- 		<typeAlias alias="contractModel" type="com.project.model.Contract"/> -->
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mapper/student.xml" />
 		<mapper resource="mybatis/mapper/Barcode.xml" />
-		
+<!-- 		<mapper resource="mybatis/mapper/Contract.xml" /> -->
 		
 	</mappers>
 
