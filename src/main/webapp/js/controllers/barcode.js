@@ -55,10 +55,10 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$scope.studentFmsResult = data;
 		})
 	};
-//	BarcodeService.getRegionIdlist(function(data){
-//		$scope.regionList = data;
-//		$scope.regionList.splice(0,0,"ALL");
-//	});
+	BarcodeService.getRegionIdlist(function(data){
+		$scope.regionList = data;
+		//$scope.regionList.splice(0,0,"ALL");
+	});
 	$scope.getAllData = function(){
 		BarcodeService.getAllData(function(data){
 			$scope.studentScanResult = data;
