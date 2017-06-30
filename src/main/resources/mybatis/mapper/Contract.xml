@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Contract">
+
+	<resultMap id="contractResultMap" type="contractModel">
+		<id column="NAME" property="name"/>
+		<result  column="JOB_TITLE" property="jobTitle"/>
+		
+		<result  column="DEPARTMENT" property="department"/> 
+ 		<result  column="ANNUAL_SALARY" property="annualSalary"/> 
+		<result  column="ESTIMATED_ANNUAL_SALARY" property="estimatedAnnualSalary"/>
+	</resultMap>
+	
+	
+	
+	<select id="getEmpByName" parameterType="contractModel"  resultMap="contractResultMap">
+	
+		select * from EMPLOYEE where DEPARTMENT LIKE (#{department}) 
+	
+	</select>
+	
+	<select id="getDeptListC"  resultType="java.lang.String">
+	
+	
+		SELECT distinct department  FROM EMPLOYEE
+	
+	</select>
+<select id="searchByJobTitle"  parameterType="contractModel"  resultMap="contractResultMap">
+	
+	
+		SELECT *   FROM EMPLOYEE WHERE JOB_TITLE LIKE #{jobTitle}
+	
+	</select>
+	
+
+	
+	<update id="updateContract" parameterType="contractModel">
+	update EMPLOYEE SET 
+	NAME = #{name},
+	ANNUAL_SALARY = #{annualSalary},
+	DEPARTMENT =#{department},
+	ESTIMATED_ANNUAL_SALARY=#{estimatedAnnualSalary},
+	JOB_TITLE = #{jobTitle}
+	where NAME = #{name}
+	</update>
+</mapper>

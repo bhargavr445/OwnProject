@@ -7,6 +7,7 @@ public class Address {
 	private String city;
 	private String state;
 	private String country;
+	private String ZIP;
 	
 	
 	public int getId() {
@@ -45,27 +46,10 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	public Address(){};
-	
-	public Address(int id, String address1, String address2, String city,
-			String state, String country) {
-		super();
-		this.id = id;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.city = city;
-		this.state = state;
-		this.country = country;
+	public String getZIP() {
+		return ZIP;
 	}
-	
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", address1=" + address1 + ", address2="
-				+ address2 + ", city=" + city + ", state=" + state
-				+ ", country=" + country + "]";
+	public void setZIP(String zIP) {
+		ZIP = zIP;
 	}
-	
-	
-	
 }

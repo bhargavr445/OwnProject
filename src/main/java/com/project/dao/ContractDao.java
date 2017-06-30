@@ -1,10 +1,10 @@
-package com.project.service;
+package com.project.dao;
 
 import java.util.List;
 
 import com.project.model.Contract;
 
-public interface ContractService {
+public interface ContractDao {
 
 	List<Contract> getEmpByName(Contract contract);
 

@@ -61,9 +61,9 @@ $http.get('http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=d436c
   
   
   $scope.searchSubmit = function(){
-	
 	  myService.searchData($scope.search,function(result){
 		  $scope.students = result;
+		  $log.info($scope.students);
 	  });
   };
   

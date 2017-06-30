@@ -15,13 +15,24 @@
 	</resultMap>
 	
 	<resultMap id="AddressResultMap" type="addressModel">
-		<id property="id" column="AddressID" />
-		<result property="address1" column="address1"/>
-		<result property="address2" column="address2"/>
-		<result property="city" column="city"/>
-		<result property="state" column="state"/>
-		<result property="country" column="country"/>
+<!-- 		<id property="id" column="AddressID" /> -->
+
+		<result property="address1" column="Address1"/>
+		<result property="address2" column="Address2"/>
+		<result property="city" column="City"/>
+		<result property="state" column="State"/>
+		<result property="zip" column="ZIP"/>
 	</resultMap>
+	
+	<select id="searchStudent" resultMap="studentResultMap">
+	
+		select s.id,s.name,a.address1,a.address2,a.city,a.state from student s inner join address a on s.id = a.studentid
+	</select>
+	
+	<select id="loadStudentByName" parameterType="studentModel" resultMap="studentResultMap">
+	
+		select s.id,s.name,a.address1,a.address2,a.city,a.state,a.zip from student s inner join address a on s.id = a.studentid where s.name = #{stuName}
+	</select>
 	
 	<insert id="insertStudent" parameterType="studentModel"
 		keyProperty="stuId" useGeneratedKeys="true">
@@ -44,11 +55,11 @@
 	</select>
 	
 		
-	<select id="searchStudent"  resultMap="studentResultMap">
+<!-- 	<select id="searchStudent"  resultMap="studentResultMap"> -->
 	
-		select * from EMP where policyId like (#{stuId}) 
+<!-- 		select * from EMP where policyId like (#{stuId})  -->
 	
-	</select>
+<!-- 	</select> -->
 	
 	<select id="getContracts"   resultMap="studentResultMap">
 	
@@ -74,3 +85,4 @@
 <!-- 	</delete> -->
 	
 </mapper>
+

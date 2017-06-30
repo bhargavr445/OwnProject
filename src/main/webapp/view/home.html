@@ -1,7 +1,7 @@
 <!-- <form> -->
-  <input type="text" class="form-control" id="id" placeholder="Enter ID" ng-model="search.stuId" uib-typeahead = "titles.stuName for titles in namesList | filter:$viewValue"/>
-  <input    ui-mask="999-999-9999"
-               placeholder="xxx-xxx-xxxx" ng-model="phonenumber"></input>
+<!--   <input type="text" class="form-control" id="id" placeholder="Enter ID" ng-model="search.stuId" uib-typeahead = "titles.stuName for titles in namesList | filter:$viewValue"/> -->
+<!--   <input    ui-mask="999-999-9999" -->
+<!--                placeholder="xxx-xxx-xxxx" ng-model="phonenumber"></input> -->
  
   
 <!--   <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="search.stuName" ></input> -->
@@ -16,23 +16,25 @@
 <input type="text"  id="id" placeholder="Enter ID" ng-model="search.stuId"/>
 <button type="submit"  ng-click="searchSubmit()">Search</button>
 </form>
-<label>Searched Data</label>
-  <select>
-  <option ng-repeat = "county in countyList">{{county.stuName}}</option>
-  </select>
+<!-- <label>Searched Data</label> -->
+<!--   <select> -->
+<!--   <option ng-repeat = "county in countyList">{{county.stuName}}</option> -->
+<!--   </select> -->
 <table id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable">			                       
  <thead style = "color:black;background-color:lightblue">
 			                            <tr>
-			                            	
-			                                <th>Policy Id</th>
-			                                <th>County</th>
-			                                
+			                            	<th>Id</th>
+			                                <th>Name</th>
+			                                <th>Address1</th>
+			                                <th>Address2</th>
 			                            </tr>
 			                        </thead>
 		                            <tbody>
 		                                <tr ng-repeat= "student in students">
 		                                	 <td>{{student.stuId}}</td>
  		                                    <td>{{student.stuName}}</td>  
+ 		                                    <td>{{student.address.address1}}</td> 
+ 		                                    <td>{{student.address.address2}}</td> 
                                     </tr>
 		                            </tbody>
 		                        </table>

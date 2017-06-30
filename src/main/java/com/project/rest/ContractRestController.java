@@ -30,13 +30,49 @@ public class ContractRestController {
 	ContractService contractService;
 	
 	
-	@GET
+	@POST
 	@Path("getEmpByName")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getAllStudent() throws JsonGenerationException, JsonMappingException, IOException  {
+	public String getAllStudent(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
 		
-		List<Contract> str = contractService.getEmpByName();
+		List<Contract> str = contractService.getEmpByName(contract);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	@GET
+	@Path("getDeptList")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getDeptList() throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<String> str = contractService.getDeptList();
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	@POST
+	@Path("searchByJobTitle")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String searchByJobTitle(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<Contract> str = contractService.searchByJobTitle(contract);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	@POST
+	@Path("editContractStudent")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String editContractStudent(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		int str = contractService.editContractStudent(contract);
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;

@@ -29,6 +29,14 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 	templateUrl:'view/contract/contractMain.html',
 		controller: 'contractController'
 })
+.when('/editStudentContract',{
+	templateUrl:'view/contract/editStudentContract.html',
+	controller: 'editContractController'
+})
+.when('/editContract',{
+	templateUrl:'view/contract/contractEdit.html',
+	controller: 'editContractController2'
+})
 .otherwise({
   redirectTo:'/home'
 });

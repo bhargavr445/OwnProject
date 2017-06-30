@@ -6,6 +6,18 @@ services.factory('contractService', function($resource) {
 		getStudent : {
 			method : 'POST', isArray: true,
 			params: {'action':'getEmpByName'}
+		},
+		getDeptList :{
+			method: 'GET',isArray:true,
+			params:{'action':'getDeptList'}
+		},
+		searchByJobTitle : {
+			method: 'POST', isArray:true,
+			params: {'action':'searchByJobTitle'}
+		},
+		editContractStudent : {
+			method : 'POST',isArray : true,
+			params : {'action':'editContractStudent'}
 		}
 	});
 });
