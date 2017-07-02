@@ -14,4 +14,6 @@ public interface ContractService {
 
 	int editContractStudent(Contract contract);
 
+	List<Contract> getStudentInImage(Contract contract);
+
 }

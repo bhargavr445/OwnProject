@@ -47,4 +47,12 @@ public class ContractDaoImpl implements ContractDao{
 		return empList;
 	}
 
+	@Override
+	public List<Contract> getStudentInImage(Contract contract) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<Contract> empList = sqlSession.selectList("imageResults", contract);
+		return empList;
+	}
+
 }

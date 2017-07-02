@@ -34,8 +34,9 @@
 		SELECT *   FROM EMPLOYEE WHERE JOB_TITLE LIKE #{jobTitle}
 	
 	</select>
-	
-
+	<select id="imageResults" parameterType = "contractModel" resultMap = "contractResultMap">
+		select * from EMPLOYEE where DEPARTMENT LIKE (#{department}) 
+</select>
 	
 	<update id="updateContract" parameterType="contractModel">
 	update EMPLOYEE SET 

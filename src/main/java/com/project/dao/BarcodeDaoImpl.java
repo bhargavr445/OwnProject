@@ -74,10 +74,8 @@ public class BarcodeDaoImpl implements BarcodeDao {
 	@Override
 	public List<Barcode> getSelectedData(String deptName) {
 		SqlSession sqlSession = null;
-		Barcode barcode = new Barcode();
-		barcode.setDepartment(deptName);
 		sqlSession = sqlSessionFactory.openSession();
-		List<Barcode> details = sqlSession.selectList("selectedData",barcode);
+		List<Barcode> details = sqlSession.selectList("selectedData",deptName);
 		return details;
 	}
 

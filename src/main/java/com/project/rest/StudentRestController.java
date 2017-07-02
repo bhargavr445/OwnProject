@@ -138,11 +138,27 @@ public class StudentRestController {
 		
 	}
 	
+//	@POST
+//	@Path("deleteStudent")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String deleteStudent(Student student) throws JsonGenerationException, JsonMappingException, IOException  {
+//		
+//		String str = studentService.deletStudent(student);
+//		
+//		ObjectMapper mapper = new ObjectMapper();
+//		
+//		String studentJson = mapper.writeValueAsString(str);
+//		return studentJson;
+//		
+//		
+//	}
+	
 	@POST
-	@Path("deleteStudent")
+	@Path("updateStudent")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String deleteStudent(Student student) throws JsonGenerationException, JsonMappingException, IOException  {
+	public String updateStudent(Student student) throws JsonGenerationException, JsonMappingException, IOException  {
 		
 		String str = studentService.deletStudent(student);
 		
@@ -153,6 +169,4 @@ public class StudentRestController {
 		
 		
 	}
-	
-	
 }

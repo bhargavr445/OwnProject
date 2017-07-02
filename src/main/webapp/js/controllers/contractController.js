@@ -5,7 +5,7 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 	$scope.tabs = [
 						{ title:"Contract", page:"view/contract/contractClass.html", active: true },
 						{ title:"Contract Class", page:"view/contract/contract.html" },
-						{ title:"Image", page:"view/payroll/scan.html" }
+						{ title:"Image", page:"view/contract/image.html" }
 	              ];
 	
 	
@@ -28,13 +28,16 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 	}else{
 		$rootScope.index = 0;
 	}
-
+	contractService.getStudentInImage(function(data){
+		$scope.empListInImageTab = data;
+	});
 	$scope.searchContract = function(contract){
 		$rootScope.contract = contract;
 		contractService.getStudent(contract,function(data){
 			$scope.contractList = data;
-			
 		});
+		
+		
 	};
 	
 	$scope.selectedIndex = function(index){

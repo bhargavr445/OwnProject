@@ -18,6 +18,10 @@ services.factory('contractService', function($resource) {
 		editContractStudent : {
 			method : 'POST',isArray : false,
 			params : {'action':'editContractStudent'}
+		},
+		getStudentInImage : {
+			method : 'POST',isArray : true,
+			params : {'action':'getStudentInImage'}
 		}
 	});
 });

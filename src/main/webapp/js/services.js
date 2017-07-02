@@ -34,6 +34,10 @@ services.factory('myService', function($resource) {
 		getCounty : {
 			method : 'GET', isArray:true,
 			params: {'action':'getCountyList'}
+		},
+		updateStudent : {
+			method : 'POST', isArray: false,
+			params : {'action':'updateStudent'}
 		}
 	
 	});

@@ -66,7 +66,16 @@ app.controller('StudentEditController', function($scope,$rootScope,$http,$log,$l
 		$scope.reset = function(){
 			$scope.editStudent = $scope.originalStudent;
 		}
-	
+	 $scope.updateSubmit = function(){
+		  
+		 $scope.updateStudent = {};
+		 $scope.updateStudent = $scope.editStudent;
+		 $scope.updateStudent.address = $scope.student.address;
+		 myService.updateStudent($scope.updateStudent.address,function(data){
+			 $scope.result = data;
+		 });
+		 
+	 };
 	
 	
 	

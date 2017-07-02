@@ -29,7 +29,6 @@
 	
 	<select id="getDeptList" parameterType="barcodeModel"  resultMap="barcodeResultMap">
 	
-	
 		SELECT distinct department  FROM EMPLOYEE
 	
 	</select>
@@ -39,7 +38,6 @@
 	
 	</select>
 	<insert id="addnewStudent" parameterType="barcodeModel" >   
-	
 	insert into EMPLOYEE
 	(NAME,
 	JOB_TITLE,
@@ -62,17 +60,9 @@
 		select distinct substring(ANNUAL_SALARY, 2, 1) from EMPLOYEE
 	</select>
 	
-	<select id="selectedData" parameterType="barcodeModel"  resultMap="barcodeResultMap">
+	<select id="selectedData" parameterType="string"  resultMap="barcodeResultMap">
 	
-		SELECT *  FROM EMPLOYEE where 1=1 
-		
-		<if test="department == 'ALL'">
-		
-		</if>
-		<if test="department != 'ALL'">
-			and	DEPARTMENT LIKE (#{department})
-		</if>
-		
+		SELECT *  FROM EMPLOYEE where DEPARTMENT LIKE (#{deptName})
 	
 	</select>
 	

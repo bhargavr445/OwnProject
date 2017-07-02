@@ -27,9 +27,6 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	
 	BarcodeService.getDepartments(function(data){
 		$scope.departmentsList = data;
-		$scope.departmentsList.splice(0,0,{
-			"department" : "ALL"
-		});
 	});
 	
 	$scope.goToScan = function(){
@@ -41,9 +38,8 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	};
 	
 	$scope.addNewStudent= function(){
-		BarcodeService.addNewStudent($scope.addStudent,function(data){
-			$scope.msg = data; 
-			$log.info($scope.msg);
+		BarcodeService.addNewStudent($scope.student,function(data){
+			$scope.msg = data;
 			$location.path('/barcode');
 		})
 	};

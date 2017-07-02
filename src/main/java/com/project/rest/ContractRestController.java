@@ -77,6 +77,20 @@ public class ContractRestController {
 		//String studentJson = mapper.writeValueAsString(str);
 		return str;
 	}
+
+	
+	@POST
+	@Path("getStudentInImage")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getStudentInImage(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<Contract> imageResults = contractService.getStudentInImage(contract);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(imageResults);
+		return studentJson;
+	}
+	
 }
 
 

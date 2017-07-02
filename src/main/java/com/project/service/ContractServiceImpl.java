@@ -37,6 +37,12 @@ public class ContractServiceImpl implements ContractService{
 		int empList = contractDao.editContractStudent(contract);
 		return empList;
 	}
+
+	@Override
+	public List<Contract> getStudentInImage(Contract contract) {
+		List<Contract> imageList = contractDao.getStudentInImage(contract);
+		return imageList;
+	}
 	
 	
 

@@ -47,7 +47,8 @@ public class StudentDaoImpl implements StudentDao{
 	public String deleteStudent(Student student) {
 		SqlSession sqlSession = null;
 		sqlSession = sqlSessionFactory.openSession();
-		int i = sqlSession.delete("deleteStudent",student);
+		int i = sqlSession.delete("deleteAdd", student);
+		int stuDel = sqlSession.delete("deleteStudent",student);
 		if(i ==1){
 			return "deleted successfully";
 		}else{

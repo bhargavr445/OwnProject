@@ -14,4 +14,6 @@ public interface ContractDao {
 
 	int editContractStudent(Contract contract);
 
+	List<Contract> getStudentInImage(Contract contract);
+
 }
