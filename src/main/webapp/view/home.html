@@ -27,6 +27,7 @@
 			                                <th>Name</th>
 			                                <th>Address1</th>
 			                                <th>Address2</th>
+			                                <th>Actions</th>
 			                            </tr>
 			                        </thead>
 		                            <tbody>
@@ -35,6 +36,9 @@
  		                                    <td>{{student.stuName}}</td>  
  		                                    <td>{{student.address.address1}}</td> 
  		                                    <td>{{student.address.address2}}</td> 
+ 		                                    <td>
+ 		                                    <button type="submit" ng-click="updateStudent(student)">Edit</button>
+ 		                                    </td>
                                     </tr>
 		                            </tbody>
 		                        </table>

@@ -19,10 +19,9 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 				
 		});
 			
-	}
-	else if($rootScope.index == 1){
+	}else if($rootScope.index == 1){
 		contractService.searchByJobTitle($rootScope.searchData,function(data){
-		$scope.empList = data; 
+			$scope.empList = data; 
 		});
 	}
 		
@@ -40,7 +39,20 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 	
 	$scope.selectedIndex = function(index){
 		$log.info(index);
-		$rootScope.index = index;	
+		$rootScope.index = index;
+		
+		if($rootScope.index == 0){
+			$scope.contract = $rootScope.contract;
+			contractService.getStudent($scope.contract,function(data){
+			$scope.contractList = data;
+				
+		});
+			
+	}else if($rootScope.index == 1){
+		contractService.searchByJobTitle($rootScope.searchData,function(data){
+			$scope.empList = data; 
+		});
+	}
 	};
 	
 	
@@ -61,6 +73,7 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 	
 	$scope.searchByJobTitle = function(student){
 		$scope.tabs[1].active=true;
+		$rootScope.index = 1;
 		$rootScope.searchData = student;
 		contractService.searchByJobTitle(student,function(data){
 			$scope.empList = data; 

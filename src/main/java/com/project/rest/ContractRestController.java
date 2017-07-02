@@ -70,12 +70,12 @@ public class ContractRestController {
 	@Path("editContractStudent")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String editContractStudent(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+	public int editContractStudent(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
 		
 		int str = contractService.editContractStudent(contract);
-		ObjectMapper mapper = new ObjectMapper();
-		String studentJson = mapper.writeValueAsString(str);
-		return studentJson;
+		//ObjectMapper mapper = new ObjectMapper();
+		//String studentJson = mapper.writeValueAsString(str);
+		return str;
 	}
 }
 

@@ -37,6 +37,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 	templateUrl:'view/contract/contractEdit.html',
 	controller: 'editContractController2'
 })
+.when('/editStudentHome',{
+	templateUrl : 'view/editStudent.html',
+	controller : 'StudentEditController'
+})
 .otherwise({
   redirectTo:'/home'
 });

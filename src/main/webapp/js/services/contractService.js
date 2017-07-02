@@ -16,7 +16,7 @@ services.factory('contractService', function($resource) {
 			params: {'action':'searchByJobTitle'}
 		},
 		editContractStudent : {
-			method : 'POST',isArray : true,
+			method : 'POST',isArray : false,
 			params : {'action':'editContractStudent'}
 		}
 	});
