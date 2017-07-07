@@ -160,11 +160,29 @@ public class StudentRestController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String updateStudent(Student student) throws JsonGenerationException, JsonMappingException, IOException  {
 		
-		String str = studentService.deletStudent(student);
+		int i = studentService.updateStudent(student);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
-		String studentJson = mapper.writeValueAsString(str);
+		String studentJson = mapper.writeValueAsString(i);
+		return studentJson;
+		
+		
+	}
+	
+	
+	
+	@POST
+	@Path("addHomeStudent")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String addHomeStudent(Student student) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		int i = studentService.addHomeStudent(student);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String studentJson = mapper.writeValueAsString(i);
 		return studentJson;
 		
 		

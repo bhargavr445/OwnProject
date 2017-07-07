@@ -23,4 +23,8 @@ public interface StudentService {
 
 	List<String> getContracts();
 
+	int updateStudent(Student student);
+
+	int addHomeStudent(Student student);
+
 }

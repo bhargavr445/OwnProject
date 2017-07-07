@@ -16,4 +16,8 @@ public interface ContractDao {
 
 	List<Contract> getStudentInImage(Contract contract);
 
+	List<String> getJobTitle();
+
+	List<Contract> searchByNameString(Contract contract);
+
 }

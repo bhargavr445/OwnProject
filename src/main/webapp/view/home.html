@@ -12,6 +12,8 @@
 <!--   <input type="text" class="form-control" id="id" placeholder="Enter ID to Search" ng-model="search.stuId"/> -->
 <!--   <button type="submit" class="btn btn-primary" ng-click="SearchSubmit()">Search</button> -->
 <!-- </form> -->
+<!-- <buton type="submit" href="/homeAdd">Add</buton> -->
+<button class= "btn btn-primary btn-sm" type="submit" ><a href="#/homeAdd">Add</a></button>
 <form>
 <input type="text"  id="id" placeholder="Enter ID" ng-model="search.stuId"/>
 <button type="submit"  ng-click="searchSubmit()">Search</button>
@@ -48,7 +50,8 @@
 		                        <option ng-repeat = "student in students">{{student.stuId}}</option>
 		                        </select>
 		                        
-		                        
+		                        <input type="file"/>
+		                        <button type="file">Choose File</button>
 		                        	                        
 		                        <p>{{myDetails.base}}</p>
 		                          <p>{{myDetails.name}}</p>  

@@ -38,6 +38,10 @@ services.factory('myService', function($resource) {
 		updateStudent : {
 			method : 'POST', isArray: false,
 			params : {'action':'updateStudent'}
+		},
+		addHomeStudent : {
+			method : 'POST', isArray : false,
+			params : {'action':'addHomeStudent'}
 		}
 	
 	});

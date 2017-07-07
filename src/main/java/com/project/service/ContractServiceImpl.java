@@ -43,6 +43,20 @@ public class ContractServiceImpl implements ContractService{
 		List<Contract> imageList = contractDao.getStudentInImage(contract);
 		return imageList;
 	}
+
+	@Override
+	public List<String> getjobTitle() {
+		List<String> jobTitleList = contractDao.getJobTitle();
+		return jobTitleList;
+	}
+
+	@Override
+	public List<Contract> searchByNameString(Contract contract) {
+		List<Contract> clist =contractDao.searchByNameString(contract);
+		return clist;
+	}
+
+	
 	
 	
 

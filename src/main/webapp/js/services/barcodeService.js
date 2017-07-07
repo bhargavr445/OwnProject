@@ -42,7 +42,12 @@ services.factory('BarcodeService', function($resource) {
 		editStudent: {
 			method: 'POST', isArray:false,
 			params: {'action':'editStudent'}
+		},
+		searchByName : {
+			method : 'POST', isArray: true,
+			params : {'action':'searchByName'}
 		}
+		
 	});
 
 });

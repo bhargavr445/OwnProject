@@ -47,4 +47,14 @@
 	JOB_TITLE = #{jobTitle}
 	where NAME = #{name}
 	</update>
+	
+	
+	<select id="jobTitleList"  resultType="java.lang.String">
+		select distinct JOB_TITLE from EMPLOYEE
+</select>
+
+
+	<select id="searchByNameString"   parameterType="contractModel"  resultMap="contractResultMap">
+		select * from EMPLOYEE WHERE NAME LIKE #{name}
+</select>
 </mapper>

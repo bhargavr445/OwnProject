@@ -17,8 +17,6 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.project.model.Barcode;
 import com.project.model.Contract;
 import com.project.service.ContractService;
 
@@ -91,6 +89,46 @@ public class ContractRestController {
 		return studentJson;
 	}
 	
+	@GET
+	@Path("getjobTitle")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getjobTitle() throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		List<String> str = contractService.getjobTitle();
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	
+	
+	@POST
+	@Path("searchByNameString")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String searchByNameString(@FormParam("name") String name) throws JsonGenerationException, JsonMappingException, IOException  {
+		Contract contract = new Contract();
+		contract.setName(name);
+		String myName = contract.getName();
+		List<Contract> str = contractService.searchByNameString(contract);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+//	
+//	@POST
+//	@Path("searchByNameString")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String searchByNameString(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+//		
+//		List<Contract> str = contractService.searchByNameString(contract);
+//		ObjectMapper mapper = new ObjectMapper();
+//		String studentJson = mapper.writeValueAsString(str);
+//		return studentJson;
+//	}
 }
 
 

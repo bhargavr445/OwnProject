@@ -16,4 +16,10 @@ public interface ContractService {
 
 	List<Contract> getStudentInImage(Contract contract);
 
+	List<String> getjobTitle();
+
+	List<Contract> searchByNameString(Contract contract);
+
+	
+
 }

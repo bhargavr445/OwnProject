@@ -22,4 +22,8 @@ public interface StudentDao {
 	List<Student> searchById(Student student);
 
 	List<String> getContracts();
+
+	int updateStudent(Student student);
+
+	int addHomeStudent(Student student);
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.project.dao.BarcodeDao;
 import com.project.model.Barcode;
 
-
 @Service
 public class BarcodeServiceImpl implements BarcodeService{
 	

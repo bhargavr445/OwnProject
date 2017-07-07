@@ -55,4 +55,20 @@ public class ContractDaoImpl implements ContractDao{
 		return empList;
 	}
 
+	@Override
+	public List<String> getJobTitle() {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<String> jobTitlelist = sqlSession.selectList("jobTitleList");
+		return jobTitlelist;
+	}
+
+	@Override
+	public List<Contract> searchByNameString(Contract contract) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		List<Contract> empList = sqlSession.selectList("searchByNameString", contract);
+		return empList;
+	}
+
 }

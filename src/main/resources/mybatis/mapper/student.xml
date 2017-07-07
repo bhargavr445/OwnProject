@@ -79,6 +79,16 @@
 	
 	</select>
 	
+	<insert id="insertStudentHome" parameterType="studentModel" useGeneratedKeys="true" keyProperty="stuId">
+	insert into Student 
+	(NAME) values (#{stuName})
+	</insert>
+	
+	<insert id="insertAddress" parameterType="addressModel" >
+	insert into address 
+	(Address1, Address2,City,ZIP,State,studentId) values (#{address1},#{address2},#{city},#{zip},#{state},#{id})
+	</insert>
+	
 <!-- 	<delete id="deleteStudent" parameterType="studentModel"> -->
 	
 <!-- 		delete from student where StudentID = #{stuId} -->

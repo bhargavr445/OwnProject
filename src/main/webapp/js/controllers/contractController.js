@@ -35,6 +35,7 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 		$rootScope.contract = contract;
 		contractService.getStudent(contract,function(data){
 			$scope.contractList = data;
+			$scope.empListInImageTab = data;
 		});
 		
 		
@@ -80,8 +81,28 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 		$rootScope.searchData = student;
 		contractService.searchByJobTitle(student,function(data){
 			$scope.empList = data; 
+			$scope.contractList = data;
 		});
 	};
+	contractService.getJobTitle(function(data){
+		$scope.jobTitleList = data;
+	});
+	
+	//Getting data by passiing name as String to DB
+	$scope.searchByNameString = function(name){
+		contractService.searchByNameString($.param({name : name}), function(data){
+			$scope.contractList = data;
+		});
+	};
+	
+//	$scope.searchByNameString = function(name){
+//		$scope.contract = {};
+//		$scope.contract.name = name;
+//		contractService.searchByNameString($scope.contract, function(data){
+//			$scope.contractList = data;
+//		});
+//	};
+	
 });
 
 app.controller('editContractController', function($scope,$rootScope,$location,contractService){

@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public List <Student> search(Student student) {
 		List <Student> searchResult = studentDao.search(student);
-//		Student modifiedData = sampleutilClass.modifyData(searchResult);
+//Student modifiedData = sampleutilClass.modifyData(searchResult);
 		return searchResult;
 	}
 
@@ -62,6 +62,18 @@ public class StudentServiceImpl implements StudentService{
 	public List<String> getContracts() {
 		List<String> getContracts = studentDao.getContracts();
 		return getContracts;
+	}
+
+	@Override
+	public int updateStudent(Student student) {
+		int i = studentDao.updateStudent(student);
+		return i;
+	}
+
+	@Override
+	public int addHomeStudent(Student student) {
+		int i = studentDao.addHomeStudent(student);
+		return i;
 	}
 
 	

@@ -56,26 +56,39 @@ app.controller('myCtrl', function($scope,$rootScope,$http,$log,$location,myServi
 	  });
   };
   
+  $scope.addHomeStudent = function(){
+	$scope. newStudent = $scope.addStudent;
+	$scope.newStudent.address = $scope.address;
+	myService.addHomeStudent($scope.newStudent, function(data){
+		$scope.msg = data;
+	});
+  };
+  
 });
 
 
 app.controller('StudentEditController', function($scope,$rootScope,$http,$log,$location,myService) {
 	$scope.editStudent = $rootScope.student;
 	$scope.originalStudent = angular.copy($scope.student);
+	$scope.address = $scope.editStudent.address;
 		
 		$scope.reset = function(){
 			$scope.editStudent = $scope.originalStudent;
+			
 		}
 	 $scope.updateSubmit = function(){
 		  
 		 $scope.updateStudent = {};
 		 $scope.updateStudent = $scope.editStudent;
-		 $scope.updateStudent.address = $scope.student.address;
-		 myService.updateStudent($scope.updateStudent.address,function(data){
+		 $scope.updateStudent.address = $scope.address;
+		 myService.updateStudent($scope.updateStudent,function(data){
 			 $scope.result = data;
 		 });
 		 
 	 };
+	 
+	 
+	 
 	
 	
 	

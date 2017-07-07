@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.model.Address;
 import com.project.model.Student;
 
 @Repository
@@ -82,6 +83,35 @@ public class StudentDaoImpl implements StudentDao{
 		return getContracts;
 	}
 
+	@Override
+	public int updateStudent(Student student) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		int getContracts = sqlSession.update("updateStu", student);
+		return getContracts;
+	}
+
+	@Override
+	public int addHomeStudent(Student student) {
+		SqlSession sqlSession = null;
+		Address address = null;
+		int a = 0;
+		sqlSession = sqlSessionFactory.openSession();
+		address = student.getAddress();
+		int i = sqlSession.insert("insertStudentHome", student);
+		
+		address.setId(student.getStuId());
+		if(address != null){
+		 a = sqlSession.insert("insertAddress", address);
+		}
+		if(i==1 && a ==1){
+			return 1;
+		}else
+			return 0;
+	}
+
 	
 
 }
+
+	

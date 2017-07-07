@@ -7,7 +7,7 @@ public class Address {
 	private String city;
 	private String state;
 	private String country;
-	private String ZIP;
+	private String zip;
 	
 	
 	public int getId() {
@@ -46,10 +46,11 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getZIP() {
-		return ZIP;
+	public String getZip() {
+		return zip;
 	}
-	public void setZIP(String zIP) {
-		ZIP = zIP;
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
+	
 }

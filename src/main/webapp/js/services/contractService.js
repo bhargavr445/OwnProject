@@ -22,6 +22,14 @@ services.factory('contractService', function($resource) {
 		getStudentInImage : {
 			method : 'POST',isArray : true,
 			params : {'action':'getStudentInImage'}
+		},
+		getJobTitle : {
+			method : 'GET', isArray: true,
+			params : {'action':'getjobTitle'}
+		},
+		searchByNameString : {
+			method : 'POST', isArray : true,
+			params : {'action':'searchByNameString'}
 		}
 	});
 });
