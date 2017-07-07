@@ -56,8 +56,11 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	$scope.scanSubmit = function(){
 		BarcodeService.submitStudent($scope.contact, function(data){
 			$scope.studentScanResult = data;
+			
 			$scope.studentFmsResult = data;
 		})
+		
+		
 	};
 	BarcodeService.getRegionIdlist(function(data){
 		$scope.regionList = data;
@@ -95,6 +98,14 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$rootScope.student = student;
 			$location.path('/editStudent');
 		}
+	
+	
+	
+	$scope.searchByName = function(){
+		BarcodeService.searchByName($scope.emp, function(data){
+			$scope.empList = data;
+		});
+	};
 
 });
 
