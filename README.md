@@ -1,13 +1,7 @@
 Angular JS UI
 
-Bpptstrap
-HTML
-CSS
-Angular JS
-JAVA
+Bpptstrap HTML CSS Angular JS JAVA
 
-SPRING
-REST Controllers
-PERSISTANCE LAyer
+SPRING REST Controllers PERSISTANCE LAyer
 
 MyBatis.
