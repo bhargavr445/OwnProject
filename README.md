@@ -1,3 +1,13 @@
-# OwnProject
+Angular JS UI
+
+Bpptstrap
+HTML
+CSS
 Angular JS
-Angular tabs
+JAVA
+
+SPRING
+REST Controllers
+PERSISTANCE LAyer
+
+MyBatis.
