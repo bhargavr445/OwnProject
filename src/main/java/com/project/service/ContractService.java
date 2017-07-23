@@ -10,7 +10,7 @@ public interface ContractService {
 
 	List<String> getDeptList();
 
-	List<Contract> searchByJobTitle(Contract contract);
+	List<Contract> searchByJobTitle(String department);
 
 	int editContractStudent(Contract contract);
 
@@ -19,6 +19,8 @@ public interface ContractService {
 	List<String> getjobTitle();
 
 	List<Contract> searchByNameString(Contract contract);
+
+	int deletecontract(Contract contract);
 
 	
 

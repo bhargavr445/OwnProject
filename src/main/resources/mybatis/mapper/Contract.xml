@@ -28,10 +28,10 @@
 		SELECT distinct department  FROM EMPLOYEE
 	
 	</select>
-<select id="searchByJobTitle"  parameterType="contractModel"  resultMap="contractResultMap">
+<select id="searchByJobTitle"  parameterType="String"  resultMap="contractResultMap">
 	
 	
-		SELECT *   FROM EMPLOYEE WHERE JOB_TITLE LIKE #{jobTitle}
+		SELECT *   FROM EMPLOYEE WHERE JOB_TITLE LIKE #{department}
 	
 	</select>
 	<select id="imageResults" parameterType = "contractModel" resultMap = "contractResultMap">
@@ -57,4 +57,9 @@
 	<select id="searchByNameString"   parameterType="contractModel"  resultMap="contractResultMap">
 		select * from EMPLOYEE WHERE NAME LIKE #{name}
 </select>
+<delete id="deleteContract" parameterType="contractModel">
+delete from EMPLOYEE
+where
+NAME = #{name}
+</delete>
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.dao.ContractDao;
 import com.project.model.Contract;
+import com.project.util.ContractUtillClass;
 
 @Service
 public class ContractServiceImpl implements ContractService{
@@ -14,9 +15,13 @@ public class ContractServiceImpl implements ContractService{
 	@Autowired
 	ContractDao contractDao;
 	
+	@Autowired
+	ContractUtillClass contractUtillClass;
+	
 	@Override
 	public List<Contract> getEmpByName(Contract contract) {
 		List<Contract> empList = contractDao.getEmpByName(contract);
+		//List<Contract> empTax = contractUtillClass.taxCalc(empList);
 		return empList;
 	}
 
@@ -27,8 +32,10 @@ public class ContractServiceImpl implements ContractService{
 	}
 
 	@Override
-	public List<Contract> searchByJobTitle(Contract contract) {
-		List<Contract> empList = contractDao.searchByJobTitle(contract);
+	public List<Contract> searchByJobTitle(String department) {
+		List<Contract> empList = contractDao.searchByJobTitle(department);
+		
+		//List<Contract> empTax = contractUtillClass.taxCalc(empList);
 		return empList;
 	}
 
@@ -54,6 +61,12 @@ public class ContractServiceImpl implements ContractService{
 	public List<Contract> searchByNameString(Contract contract) {
 		List<Contract> clist =contractDao.searchByNameString(contract);
 		return clist;
+	}
+
+	@Override
+	public int deletecontract(Contract contract) {
+		int str = contractDao.deletecontract(contract);
+		return str;
 	}
 
 	

@@ -9,6 +9,7 @@ public class Contract {
 	private String annualSalary;
 	private String estimatedAnnualSalary;
 	private Address address;
+	private float tax;
 	
 	
 	public String getAnnualSalary() {
@@ -46,6 +47,12 @@ public class Contract {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public float getTax() {
+		return tax;
+	}
+	public void setTax(float tax) {
+		this.tax = tax;
 	}
 	
 	

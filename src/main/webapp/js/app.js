@@ -1,4 +1,4 @@
-var app = angular.module('myOwnApp', ['ngRoute','myApp.services','BarcodeService','contractService','ui.utils','ui.bootstrap','reference','xeditable']);
+var app = angular.module('myOwnApp', ['ngRoute','myApp.services','BarcodeService','employeeService','contractService','ui.utils','ui.bootstrap','reference','xeditable']);
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
   $routeProvider
   .when('/home', {
@@ -41,9 +41,13 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 	templateUrl : 'view/editStudent.html',
 	controller : 'StudentEditController'
 })
-.when('/homeAdd',{
-	  templateUrl : 'view/addHome.html',
-	  controller : 'myCtrl'
+.when('/employee',{
+	  templateUrl : 'view/EmployeeAndDept/EmpAndDept.html',
+	  controller : 'employeeController'
+  })
+  .when('/home',{
+	  templateUrl : 'view/editStudent.html',
+		controller : 'StudentEditController'
   })
 .otherwise({
   redirectTo:'/home'

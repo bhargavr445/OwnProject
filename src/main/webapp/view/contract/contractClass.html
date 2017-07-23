@@ -15,6 +15,7 @@
 		                        </select>
 		                        
 		                        <input type="text" ng-model="name" placeholder = "Enter Name">
+<!-- 		                        //<input type="text" ng-model="student.id" placeholder = "Enter id"> -->
 		                        <button type="submit" ng-click="searchByNameString(name)">Submit Name</button>
 </form>
 
@@ -29,21 +30,23 @@
 			                                 <th>Dept</th> 
 			                                 <th>Sal</th>
 			                                <th>Annua Sal</th>
+			                                <th>Tax</th>
 			                               <th>Actions</th>
 			                            </tr>
 			                        </thead>
 		                            <tbody>
 		                                <tr ng-repeat= "student in contractList | filter:search ">
 		                                    <td>{{student.name}}</td>
-		                                     <td><a href = "" ng-click = "searchByJobTitle(student)">{{student.jobTitle}}</a></td>
+		                                     <td><a href = "" ng-click = "searchByJobTitle(student.jobTitle)">{{student.jobTitle}}</a></td>
 		                                    <td>{{student.department}}</td>
 		                                    <td>{{student.annualSalary}}</td>
 		                                    <td>{{student.estimatedAnnualSalary}}</td>
+		                                     <td>{{student.tax}}</td>
 		                                    <th>
 	                                    
 <!--  <button type="submit" ><a  ng-click="editStudent(student)">EDIT</a></button>   -->
  <button type="submit" value="submit" class="btn btn-primary btn-sm" ng-click="editContract(student)"><i class="glyphicon glyphicon-edit" aria-hidden="true"></i></button>
-		                                    <button type="submit" value="submit" class="btn btn-danger btn-sm" ng-click="deleteStudent(student)">
+		                                    <button type="submit" value="submit" class="btn btn-danger btn-sm" ng-click="deleteContract(student)">
   <i class="glyphicon glyphicon-trash" aria-hidden="true"></i></button>
  
    </th>

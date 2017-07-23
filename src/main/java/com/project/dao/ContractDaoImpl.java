@@ -32,10 +32,10 @@ public class ContractDaoImpl implements ContractDao{
 	}
 
 	@Override
-	public List<Contract> searchByJobTitle(Contract contract) {
+	public List<Contract> searchByJobTitle(String department) {
 		SqlSession sqlSession = null;
 		sqlSession = sqlSessionFactory.openSession();
-		List<Contract> empList = sqlSession.selectList("searchByJobTitle", contract);
+		List<Contract> empList = sqlSession.selectList("searchByJobTitle", department);
 		return empList;
 	}
 
@@ -69,6 +69,15 @@ public class ContractDaoImpl implements ContractDao{
 		sqlSession = sqlSessionFactory.openSession();
 		List<Contract> empList = sqlSession.selectList("searchByNameString", contract);
 		return empList;
+	}
+
+	@Override
+	public int deletecontract(Contract contract) {
+		// TODO Auto-generated method stub
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		int str = sqlSession.delete("deleteContract", contract);
+		return str;
 	}
 
 }

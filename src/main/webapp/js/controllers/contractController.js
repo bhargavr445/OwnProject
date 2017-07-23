@@ -75,14 +75,20 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 		$location.path('/editContract');
 	};
 	
-	$scope.searchByJobTitle = function(student){
+	$scope.searchByJobTitle = function(jobTitle){
 		$scope.tabs[1].active=true;
+		//$scope.deptname = $scope.student.detartment;
 		$rootScope.index = 1;
-		$rootScope.searchData = student;
-		contractService.searchByJobTitle(student,function(data){
+		if(searchData != jobTitle){
+		$rootScope.searchData = jobTitle;
+		//$scope.deptname = $scope.student.detartment;
+		contractService.searchByJobTitle($.param({department : jobTitles}),function(data){
 			$scope.empList = data; 
 			$scope.contractList = data;
 		});
+		}else{
+			
+		}
 	};
 	contractService.getJobTitle(function(data){
 		$scope.jobTitleList = data;
@@ -92,6 +98,13 @@ app.controller('contractController', function($scope,$rootScope,$http,$log,$loca
 	$scope.searchByNameString = function(name){
 		contractService.searchByNameString($.param({name : name}), function(data){
 			$scope.contractList = data;
+		});
+	};
+	
+	$scope.deleteContract = function(contract){
+		contractService.deleteContract(contract, function(data){
+			$scope.msg = data;
+			$location.path('/contract');
 		});
 	};
 	

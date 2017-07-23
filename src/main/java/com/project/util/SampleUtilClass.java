@@ -10,11 +10,14 @@ public class SampleUtilClass {
 	public List<Student> modifyData(List<Student> stuList){
 		
 		System.out.println(stuList);
+		int i=0;
 		for (Student student : stuList) {
-			if(student.getStuId() == 5){
-				student.setStuName("ABC");
+			i++;
+			if(student.getStuName() == "Bhargav"){
+				stuList.remove(i);
+				student.setStuName("");
 			}else{
-				student.setStuName("DEF");
+				student.setStuName("");
 			}
 		}	
 		return stuList;

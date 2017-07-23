@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public List <Student> search(Student student) {
 		List <Student> searchResult = studentDao.search(student);
-//Student modifiedData = sampleutilClass.modifyData(searchResult);
+		//List <Student> modifiedData = sampleutilClass.modifyData(searchResult);
 		return searchResult;
 	}
 

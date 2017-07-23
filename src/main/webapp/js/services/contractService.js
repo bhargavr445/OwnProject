@@ -30,6 +30,10 @@ services.factory('contractService', function($resource) {
 		searchByNameString : {
 			method : 'POST', isArray : true,
 			params : {'action':'searchByNameString'}
+		},
+		deleteContract : {
+			method : 'POST',isArray : false,
+			params : {'action':'c'}
 		}
 	});
 });

@@ -56,9 +56,9 @@ public class ContractRestController {
 	@Path("searchByJobTitle")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String searchByJobTitle(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+	public String searchByJobTitle(@FormParam("department") String department) throws JsonGenerationException, JsonMappingException, IOException  {
 		
-		List<Contract> str = contractService.searchByJobTitle(contract);
+		List<Contract> str = contractService.searchByJobTitle(department);
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;
@@ -112,6 +112,18 @@ public class ContractRestController {
 		contract.setName(name);
 		String myName = contract.getName();
 		List<Contract> str = contractService.searchByNameString(contract);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	
+	@POST
+	@Path("deleteContract")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String deletecontract(Contract contract) throws JsonGenerationException, JsonMappingException, IOException  {
+		int str = contractService.deletecontract(contract);
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;

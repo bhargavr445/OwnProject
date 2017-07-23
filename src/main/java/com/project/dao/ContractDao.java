@@ -10,7 +10,7 @@ public interface ContractDao {
 
 	List<String> getDeptList();
 
-	List<Contract> searchByJobTitle(Contract contract);
+	List<Contract> searchByJobTitle(String departments);
 
 	int editContractStudent(Contract contract);
 
@@ -19,5 +19,7 @@ public interface ContractDao {
 	List<String> getJobTitle();
 
 	List<Contract> searchByNameString(Contract contract);
+
+	int deletecontract(Contract contract);
 
 }
