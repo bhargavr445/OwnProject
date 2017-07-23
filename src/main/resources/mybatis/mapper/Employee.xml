@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Employee">
+
+	<resultMap id="employeeResultMap" type="employeeModel">
+		<id column="empno" property="empNo"  />
+		<result  column="ename" property="eName"/>
+		<result  column="job" property="job"/>
+		<result  column="mgr" property="mgr"/>
+<!-- 		<result  column="deptno" property=""/> -->
+		<result  column="comm" property="comission"/>
+		<result  column="sal" property="sal"/>
+	</resultMap>
+	
+	
+	
+	<select id="searchEmployee" parameterType="employeeModel"  resultMap="employeeResultMap">
+	
+		select * from emp where empno = #{empNo}
+	
+	</select>
+	
+	<select id="getAllIds"   resultType="java.lang.Integer">
+	
+		select empno from emp s
+	
+	</select>
+	</mapper>
