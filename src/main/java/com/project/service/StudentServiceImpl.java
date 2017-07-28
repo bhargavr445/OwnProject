@@ -19,8 +19,11 @@ public class StudentServiceImpl implements StudentService{
 	@Autowired
 	SampleUtilClass sampleutilClass;
 	
+	//StudentDao s = new StudentDao();
+	
 	@Override
 	public Student saveStudent(Student student) {
+		//StudentDao s = new StudentDao();
 		Student str = studentDao.saveStudent(student);
 		return str;
 	}

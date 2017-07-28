@@ -45,6 +45,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 	  templateUrl : 'view/EmployeeAndDept/EmpAndDept.html',
 	  controller : 'employeeController'
   })
+  .when('/addEmployee',{
+	  templateUrl : 'view/EmployeeAndDept/EmployeeAdd.html',
+	  controller : 'employeeController'
+  })
   .when('/home',{
 	  templateUrl : 'view/editStudent.html',
 		controller : 'StudentEditController'

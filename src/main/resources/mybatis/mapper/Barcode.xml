@@ -13,7 +13,8 @@
 		<result  column="ESTIMATED_ANNUAL_SALARY" property="estimatedAnnualSalary"/>
 	</resultMap>
 	
-	
+	<cache>
+	</cache>
 	
 	<select id="searchByBarId" parameterType="barcodeModel"  resultMap="barcodeResultMap">
 	

@@ -4,17 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Employee">
-
+	
+	
+	<resultMap id ="departmentResultMap" type ="departmentModel">
+		<result property="deptNo" column="deptno"/>
+		<result property="deptName" column="dname"/>
+		<result property="location" column="loc"/>
+		<collection property="empList" resultMap="employeeResultMap"></collection>
+	</resultMap>
+	
 	<resultMap id="employeeResultMap" type="employeeModel">
 		<id column="empno" property="empNo"  />
 		<result  column="ename" property="eName"/>
 		<result  column="job" property="job"/>
 		<result  column="mgr" property="mgr"/>
-<!-- 		<result  column="deptno" property=""/> -->
 		<result  column="comm" property="comission"/>
 		<result  column="sal" property="sal"/>
+<!-- 		<association property="department" resultMap="DepartmentResultMap" /> -->
 	</resultMap>
-	
 	
 	
 	<select id="searchEmployee" parameterType="employeeModel"  resultMap="employeeResultMap">
@@ -28,4 +35,9 @@
 		select empno from emp s
 	
 	</select>
-	</mapper>
+	
+	<select id="getEmpByLocation" parameterType="departmentModel"  resultMap="departmentResultMap">
+	
+		select * from dept d inner join emp e where e.deptno = d.deptno and d.loc like #{location}
+	</select>
+</mapper>

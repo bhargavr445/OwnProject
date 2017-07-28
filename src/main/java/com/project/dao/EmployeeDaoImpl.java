@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.project.model.Barcode;
+import com.project.model.Department;
 import com.project.model.Employee;
 
 @Repository
@@ -43,6 +43,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		 sqlSession = sqlSessionFactory.openSession();
 		List<Integer> idList = sqlSession.selectList("getAllIds");
 		return idList;
+	}
+
+
+	@Override
+	public Department searchEmployeeByLocation(Department dept) {
+		// TODO Auto-generated method stub
+		SqlSession sqlSession = null;
+		 sqlSession = sqlSessionFactory.openSession();
+		Department empList = sqlSession.selectOne("getEmpByLocation", dept);
+		System.out.println(empList);
+		return empList;
 	}
 
 

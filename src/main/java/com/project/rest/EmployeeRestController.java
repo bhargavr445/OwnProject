@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.project.model.Employee;
+import com.project.model.Department; 
 import com.project.service.EmployeeService;
 
 @Component
@@ -33,7 +34,7 @@ public class EmployeeRestController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String saveStudent(Employee employee) throws JsonGenerationException, JsonMappingException, IOException  {
-		
+
 		List<Employee> str = employeeService.searchEmployee(employee);
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
@@ -47,6 +48,21 @@ public class EmployeeRestController {
 	public String getAllIds() throws JsonGenerationException, JsonMappingException, IOException  {
 		
 		List<Integer> str = employeeService.getAllIds();
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
+	
+	@POST
+	@Path("searchBylocation")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getEmpByLoc(@FormParam("location") String location) throws JsonGenerationException, JsonMappingException, IOException  {
+		//Employee emp = new Employee();
+		Department dept = new Department();
+		dept.setLocation(location);
+		//emp.seteName(location);
+		Department str = employeeService.getEmpByLoc(dept);
 		ObjectMapper mapper = new ObjectMapper();
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;

@@ -1,7 +1,7 @@
 package com.project.model;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
+import com.project.model.Department; 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
 	
@@ -17,7 +17,8 @@ public class Employee {
 	
 	private int comission;
 	
-	private int detpNo;
+	
+	//private Department department;
 
 	public int getEmpNo() {
 		return empNo;
@@ -67,22 +68,10 @@ public class Employee {
 		this.comission = comission;
 	}
 
-	public int getDetpNo() {
-		return detpNo;
-	}
-
-	public void setDetpNo(int detpNo) {
-		this.detpNo = detpNo;
-	}
-
 	@Override
 	public String toString() {
 		return "Employee [empNo=" + empNo + ", eName=" + eName + ", job=" + job + ", mgr=" + mgr + ", sal=" + sal
-				+ ", comission=" + comission + ", detpNo=" + detpNo + "]";
+				+ ", comission=" + comission + "]";
 	}
-	
-	
-	
-	
 	
 }

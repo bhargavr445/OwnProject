@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.dao.EmployeeDao;
+import com.project.model.Department;
 import com.project.model.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -23,6 +24,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public List<Integer> getAllIds() {
 		List<Integer> idList = employeeDao.getAllIds();
 		return idList;
+	}
+
+	@Override
+	public Department getEmpByLoc(Department dept) {
+		
+		Department empList = employeeDao.searchEmployeeByLocation(dept);
+		return empList;
 	}
 	
 	

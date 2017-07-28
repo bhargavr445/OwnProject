@@ -10,7 +10,13 @@ services.factory('employeeService', function($resource) {
 		getAllId : {
 			method : 'GET', isArray: true,
 			params : {'action':'getAllId'}
+		},
+		searchBylocation : {
+			method : 'POST', isArray : false,
+			params:{'action':'searchBylocation'}
 		}
+		
+		//searchBylocation
 		
 	});
 
