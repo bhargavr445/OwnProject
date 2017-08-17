@@ -15,4 +15,6 @@ public interface EmployeeService {
 
 	Department getEmpByLoc(Department dept);
 
+	Department getDepartment(Department department);
+
 }

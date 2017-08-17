@@ -57,6 +57,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 
+	@Override
+	public Department getDepartment(Department department) {
+		SqlSession sqlSession = null;
+		 sqlSession = sqlSessionFactory.openSession();
+		 Department idList = sqlSession.selectOne("getDept", department);
+		return idList;
+	}
+
+
 	
 
 }

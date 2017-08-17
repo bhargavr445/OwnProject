@@ -40,4 +40,7 @@
 	
 		select * from dept d inner join emp e where e.deptno = d.deptno and d.loc like #{location}
 	</select>
+	<select id="getDept" parameterType="departmentModel"  resultMap="departmentResultMap">
+	select * from dept where DEPTNO = #{deptNo}
+	</select>
 </mapper>

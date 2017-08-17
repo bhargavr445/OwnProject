@@ -32,6 +32,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 		Department empList = employeeDao.searchEmployeeByLocation(dept);
 		return empList;
 	}
+
+	@Override
+	public Department getDepartment(Department department) {
+		Department deptList =  employeeDao.getDepartment(department);
+		return deptList;
+	}
 	
 	
 	

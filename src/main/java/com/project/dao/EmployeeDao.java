@@ -15,4 +15,6 @@ public interface EmployeeDao {
 
 	Department searchEmployeeByLocation(Department dept);
 
+	Department getDepartment(Department department);
+
 }

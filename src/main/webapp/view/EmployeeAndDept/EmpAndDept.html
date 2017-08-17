@@ -33,7 +33,7 @@
      </thead>
      <tbody>
 	     <tr ng-repeat= "employee in empList | filter:search ">
-	         <td>{{employee.empNo}}</td>
+	         <td><a href = "" data-ng-click = "getDepartment(employee)">{{employee.empNo}}</a></td>
 <!-- 	         <td><a href = "" ng-click = "searchByJobTitle(employee.jobTitle)">{{employee.eName}}</a></td> -->
 	         <td>{{employee.eName}}</td>
 	         <td>{{employee.job}}</td>

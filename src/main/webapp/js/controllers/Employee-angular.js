@@ -24,6 +24,12 @@ app.controller('employeeController', function($scope, employeeService,$rootScope
 		$scope.idList = data;
 	});
 	
+	$scope.getDepartment = function(employee){
+		$scope.department = employee;
+		employeeService.getDepartment($scope.department, function(data){
+			deptList = data;
+		})
+	};
 	
 	$scope.searchBylocation = function(location){
 		var dept = {};

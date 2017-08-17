@@ -14,6 +14,10 @@ services.factory('employeeService', function($resource) {
 		searchBylocation : {
 			method : 'POST', isArray : false,
 			params:{'action':'searchBylocation'}
+		},
+		getDepartment : {
+			method : 'POST', isArray : false,
+			params : {'action':'getDepartment'}
 		}
 		
 		//searchBylocation

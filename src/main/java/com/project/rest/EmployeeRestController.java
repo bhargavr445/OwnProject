@@ -67,6 +67,18 @@ public class EmployeeRestController {
 		String studentJson = mapper.writeValueAsString(str);
 		return studentJson;
 	}
+	
+	@POST
+	@Path("getDepartment")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getDepartment(Department department) throws JsonGenerationException, JsonMappingException, IOException  {
+		
+		Department str = employeeService.getDepartment(department);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson;
+	}
 }
 
 

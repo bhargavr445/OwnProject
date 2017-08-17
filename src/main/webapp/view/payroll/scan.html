@@ -90,9 +90,9 @@
 			                            </tr>
 			                        </thead>
 		                            <tbody>
-		                                <tr ng-repeat= "student in studentScanResult | filter:search ">
+		                                <tr ng-repeat= "student in studentScanResult | filter:search " ng-click = "goToview(student)">
 		                                    <td>{{student.name}}</td>
-		                                    <td><a href = "" ng-click = "goToview(student)">{{student.jobTitle}}</a></td>
+		                                    <td>{{student.jobTitle}}</td>
 		                                    <td>{{student.department}}</td>
 		                                    <td>{{student.annualSalary}}</td>
 		                                    <td>{{student.estimatedAnnualSalary}}</td>
