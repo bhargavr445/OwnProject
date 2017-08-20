@@ -3,52 +3,30 @@
        <div class="panel-body">
         
          <div class="validate">
-         <form name="contactForm">
-<!--          <input ng-model="contact.jobTitle placeholder="Enter Name" ng-required="true" ng-pattern ="/^[a-zA-Z]*$/" name="name"/> -->
-<!--          <div ng-show="contactForm.name.$touched && contactForm.name.$invalid"> -->
-<!--            <small style="color: red; display: block;">Enter valid Name</small> -->
-<!--          </div> -->
-       </br><input  ng-model="contact.department"  placeholder="Enter ID" name="id"/>
-<!--         <div ng-show = "contactForm.$submitted"> -->
-<!--          <div ng-show="contactForm.$submitted.id.$touched || contactForm.id.$invalid || contactForm.id.$error.required"> -->
-<!--            <small style="color: red; display: block;">Enter valid id</small> -->
-<!--          </div > -->
-         
-     
-     
-     
-     
-    
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+<!--          <form name="contactForm"> -->
+<!-- <!--          <input ng-model="contact.jobTitle placeholder="Enter Name" ng-required="true" ng-pattern ="/^[a-zA-Z]*$/" name="name"/> --> 
+<!-- <!--          <div ng-show="contactForm.name.$touched && contactForm.name.$invalid"> --> 
+<!-- <!--            <small style="color: red; display: block;">Enter valid Name</small> --> 
+<!-- <!--          </div> --> 
+<!--        </br><input  ng-model="contact.department"  placeholder="Enter ID" name="id"/> -->
+<!-- <!--         <div ng-show = "contactForm.$submitted"> --> 
+<!-- <!--          <div ng-show="contactForm.$submitted.id.$touched || contactForm.id.$invalid || contactForm.id.$error.required"> -->
+<!-- <!--            <small style="color: red; display: block;">Enter valid id</small> --> 
+<!-- <!--          </div > --> 
+   
      
          
-<!-- </div> -->
-       </br><input type="submit" value="Submit" ng-click="scanSubmit()"/>
-        </br><input type="submit"  value="GET ALL EMP DATA" ng-click="getAllData()"/>
+<!-- <!-- </div> --> 
+<!--        </br><input type="submit" value="Submit" ng-click="scanSubmit()"/> -->
+<!--         </br><input type="submit"  value="GET ALL EMP DATA" ng-click="getAllData()"/> -->
        
-         </form>
-         
+<!--          </form> -->
+         <div class="col-sm-6">
+         <input type="text" ng-model="name" capitalize>
+				   <input type="text" class="form-control input-sm" placeholder=""
+					id="contractClass" name="contractClass" ng-blur="getContractNo()"
+					data-ng-model="contract.contractClass" 
+		uib-typeahead="stuList.department for stuList in departmentsList | filter:$viewValue" capitalize/> 
          
           <form>
      <input type="text" ng-model = "emp.name">

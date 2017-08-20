@@ -28,4 +28,6 @@ public interface BarcodeService {
 
 	int editStudent(Barcode barcode);
 
+	Barcode getDataDisplay(String emptName);
+
 }

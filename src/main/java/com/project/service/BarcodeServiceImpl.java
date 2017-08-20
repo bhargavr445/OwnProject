@@ -75,6 +75,12 @@ public class BarcodeServiceImpl implements BarcodeService{
 		return msg;
 	}
 
+	@Override
+	public Barcode getDataDisplay(String emptName) {
+		
+		return barcodeDao.getDataDisplay(emptName);
+	}
+
 	
 
 	

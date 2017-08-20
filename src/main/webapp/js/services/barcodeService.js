@@ -11,6 +11,10 @@ services.factory('BarcodeService', function($resource) {
 			method: 'GET', isArray: true,
 			params: {'action' : 'getAllData'}
 		},
+		getDataDisplay:{
+			method: 'POST', isArray: false,
+			params: {'action' : 'getDataDisplay'}
+		},
 		getDepartments: {
 			method: 'GET', isArray: true,
 			params: {'action' : 'getDepartmentsList'}		

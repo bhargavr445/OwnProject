@@ -105,4 +105,13 @@ public class BarcodeDaoImpl implements BarcodeDao {
 		return msg;
 	}
 
+
+	@Override
+	public Barcode getDataDisplay(String emptName) {
+		SqlSession sqlSession = null;
+		sqlSession = sqlSessionFactory.openSession();
+		Barcode onevalue =sqlSession.selectOne("getDataDisplay", emptName);
+		return onevalue;
+	}
+
 }

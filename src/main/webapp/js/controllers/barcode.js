@@ -27,6 +27,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	
 	BarcodeService.getDepartments(function(data){
 		$scope.departmentsList = data;
+		$log.info($scope.departmentsList);
 		$scope.departmentsList.splice(0,0,{
 			"department" : "ALL"
 		});
@@ -96,7 +97,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 	};
 	
 	$scope.editStudent = function(student){
-			$rootScope.student = student;
+		$rootScope.empName = student.name;
 			$location.path('/editStudent');
 		}
 	
@@ -112,11 +113,14 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 
 app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$location,BarcodeService) {
 	
-	$scope.student = $rootScope.student;
+//	$scope.student = $rootScope.student;
+//	
+//	$scope.originalStudent = angular.copy($scope.student);
 	
-	$scope.originalStudent = angular.copy($scope.student);
-	
-	
+	BarcodeService.getDataDisplay($.param({name: $rootScope.empName}),function(data){
+		$scope.student = data;
+		$scope.originalStudent = angular.copy($scope.student);
+	})
 	
 	$scope.reset = function(){
 		$scope.student = angular.copy($scope.originalStudent);
@@ -134,5 +138,9 @@ app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$l
 	$scope.goToScan = function(){
 		$location.path('/barcode');
 	};
+	
+	
+	
+	
 });
 

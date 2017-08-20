@@ -86,4 +86,11 @@
 <!-- 	where NAME = #{name} -->
 	
 	</update>
+	
+	
+	<select id="getDataDisplay" parameterType="string"  resultMap="barcodeResultMap">
+	
+		SELECT *  FROM EMPLOYEE where NAME LIKE (#{emptName})
+	
+	</select>
 </mapper>

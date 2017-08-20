@@ -152,6 +152,19 @@ public class BarcodeStudentRestController {
 		return msg1; 
 	}
 	
+	
+	@POST
+	@Path("getDataDisplay")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getDataDisplay(@FormParam("name") String emptName) throws JsonGenerationException, JsonMappingException, IOException  {
+
+		Barcode str = barcodeService.getDataDisplay(emptName);
+		ObjectMapper mapper = new ObjectMapper();
+		String studentJson = mapper.writeValueAsString(str);
+		return studentJson; 
+	}
+	
 }
 
 

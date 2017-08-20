@@ -26,4 +26,6 @@ public interface BarcodeDao {
 
 	int editStudent(Barcode barcode);
 
+	Barcode getDataDisplay(String emptName);
+
 }
