@@ -8,7 +8,7 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 					{ title:"View", page:"view/payroll/view.html" },
 					{ title:"Scan", page:"view/payroll/scan.html" },
 					{ title:"FMS", page:"view/payroll/barcodeSearch.html" },
-					{ title:"SCAN w/o QA", page:"view/payroll/barcodeSearch.html"}
+					{ title:"SCAN w/o QA", page:"view/payroll/scanwithoutQa.html"}
 	               
 	               ];
 	
@@ -41,6 +41,18 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 		$rootScope.index = index;	
 	};
 	
+	$scope.salaryTypeChnaged = function (annualSalary) {
+        $scope.salaryRange = annualSalary;
+        $log.info($scope.salaryRange);
+//		if ($scope.AccountStatus == 'checking') {
+//				$scope.isHideCheck = !$scope.isHideCheck;
+//                
+//			} else if ($scope.AccountStatus == 'saving'){
+//				$scope.isHideSave = !$scope.isHideSave;
+//               
+//				}
+    };
+	
 	$scope.addNewStudent= function(){
 		BarcodeService.addNewStudent($scope.addStudent,function(data){
 			$scope.msg = data; 
@@ -64,6 +76,38 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 		
 		
 	};
+	
+//	$scope.item.department = {};
+//	item.department = "Select";
+	
+//	$scope.items = [{
+//	    'name': 'Item 1'
+//	  }, {
+//	    'name': 'Item 2'
+//	  }, {
+//	    'name': 'Account 3'
+//	  }, {
+//	    'name': 'Account 4'
+//	  }, {
+//	    'name': 'Item 5'
+//	  }, {
+//	    'name': 'Item 6'
+//	  }, {
+//	    'name': 'User 7'
+//	  }, {
+//	    'name': 'User 8'
+//	  }];
+	BarcodeService.getDepartments(function(data){
+		$scope.items = data;
+		//$log.info($scope.departmentsList);
+//		$scope.items.splice(0,0,{
+//			"department" : "ALL"
+//		});
+	});
+//	$('.dropdown-menu').find('input').click(function(e) {
+//		  e.stopPropagation();
+//		});
+	
 	BarcodeService.getRegionIdlist(function(data){
 		$scope.regionList = data;
 		//$scope.regionList.splice(0,0,"ALL");
@@ -108,7 +152,39 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 			$scope.empList = data;
 		});
 	};
+	
+	$scope.getIndex = function($index, student){
+		$scope.selectedIndex = [];
+		BarcodeService.getListByJobTitle(student[$index].name,function(data){
+			$scope.empListWithJobTitle = data;
+		});
+		$scope.selectedIndex.push($scope.index);
+		$log.info($scope.selectedIndex);
+	};
+	
+	$scope.choices = [
+//						{id: 'choice1'}, 
+//						{id: 'choice2'}
+					];
+	
+	$scope.addNewChoice = function() {
+	    var newItemNo = $scope.choices.length +1;
+	    $scope.choices.push({'id':'choice'+newItemNo});
+	  };
+	  
+	  
+	  $scope.removeChoice = function() {
+		    var lastItem = $scope.choices.length-1;
+		    $scope.choices.splice(lastItem);
+		  };
 
+		  
+		  
+		 $scope.searchByAll = function(){
+			 $rootScope.empName = $scope.student.name;
+		 };
+		  
+		  
 });
 
 app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$location,BarcodeService) {
@@ -143,4 +219,24 @@ app.controller('barcodeEditController', function($scope,$rootScope,$http,$log,$l
 	
 	
 });
+
+app.directive('capitalize', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, modelCtrl) {
+        var capitalize = function(inputValue) {
+          if (inputValue == undefined) inputValue = '';
+          var capitalized = inputValue.toUpperCase();
+          if (capitalized !== inputValue) {
+            modelCtrl.$setViewValue(capitalized);
+            modelCtrl.$render();
+          }
+          return capitalized;
+        }
+        modelCtrl.$parsers.push(capitalize);
+        capitalize(scope[attrs.ngModel]); // capitalize initial value
+      }
+    };
+  });
+
 
