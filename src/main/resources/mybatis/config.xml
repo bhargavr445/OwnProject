@@ -6,14 +6,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<typeAliases>
-		<typeAlias alias="studentModel" type="com.project.model.Student" />		
-		<typeAlias alias="addressModel" type="com.project.model.Address" />
-		<typeAlias alias="barcodeModel" type="com.project.model.Barcode" />
+		<!-- <typeAlias alias="studentModel" type="com.project.model.Student" /> -->		
+		<!-- <typeAlias alias="addressModel" type="com.project.model.Address" />
+		<typeAlias alias="barcodeModel" type="com.project.model.Barcode" /> -->
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="mybatis/mapper/student.xml" />
-		<mapper resource="mybatis/mapper/Barcode.xml" />
+		<!-- <mapper resource="mybatis/mapper/student.xml" /> -->
+		<!-- <mapper resource="mybatis/mapper/Barcode.xml" /> -->
 		
 		
 	</mappers>

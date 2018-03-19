@@ -24,6 +24,18 @@ app.controller('barcodeController', function($scope,$rootScope,$http,$log,$locat
 		);
 	});
 	
+	$http.get('Data/details.json').then(function(response){
+		$scope.detailsList=response.data;
+		$log.info($scope.detailsList);
+	})
+	
+	$scope.getDetails=function(){
+		console.log("Work Function");
+		workService.get(function(data){
+			
+		})
+	}
+	
 	$scope.goToScan = function(){
 		$location.path('/barcode');
 	};

@@ -4,6 +4,10 @@ app.controller('myCtrl', function($scope,$http,$log,$location,myService) {
 		$scope.myDetails.splice(index,1);
 	}
 	
+	$scope.getLines = function(){
+		
+	}
+	
 	
 	$scope.addData=function(){
 		$scope.myDetails.push({

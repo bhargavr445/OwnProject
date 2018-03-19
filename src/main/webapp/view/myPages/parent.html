@@ -15,6 +15,39 @@
 	<submit type="submit" value="send"/>
 	{{contact}}
  </form>
+ 
+ <ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<button type="button" ng-click="getData()">getData</button>
+ 
+ <ul ng-repeat="details in empDetails">
+  <li>{{details.name}}</li>
+  <li>{{details.price}}</li>
+</ul>
+
+
+
+
+
 </div>
+<table id="datatable-buttons" class="datatable-buttons table table-striped table-bordered table-hover exportable">			                       
+ <thead style = "color:black;background-color:lightblue">
+			                            <tr>
+			                                <th>Policy Id</th>
+			                                <th>County</th>
+			                                
+			                            </tr>
+			                        </thead>
+		                            <tbody>
+		                                <tr ng-repeat= "details in empDetails">
+		                                	 <td>{{details.name}}</td>
+ 		                                    <td>{{details.price}}</td>  
+                                    </tr>
+		                            </tbody>
+		                        </table>
 </body>
 </html>
